@@ -1,0 +1,50 @@
+.image {
+  object-fit: contain;
+  width: auto;
+  height: auto;
+}
+
+.container {
+  display: inline-block;
+  position: relative;
+}
+
+.mainText {
+  position: absolute;
+  left: 240px;
+  top: 145px;
+  font-size: 40px;
+  font-family: 'Marcellus';
+  font-weight: bold;
+}
+
+.secondaryText {
+  position: absolute;
+  left: 240px;
+  top: 210px;
+  font-size: 26px;
+  font-family: 'Marcellus';
+  font-weight: thin;
+}
+
+.productBtn {
+  position: absolute;
+  left: 240px;
+  top: 275px;
+  font-size: 26px;
+  font-size: 26px;
+  font-family: 'Marcellus';
+  font-weight: thin;
+  width: 200px;
+  padding: 8px;
+  background: transparent;
+  border-width: 1px;
+}
+
+.productBtn:hover {
+  background-color: #E6B800;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
