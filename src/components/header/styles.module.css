@@ -18,6 +18,12 @@
 .nav a {
   text-decoration: none;
   color: #E6B800;
+  transition: all 0.4s;
+}
+
+.nav a:hover {
+  transform: scale(1.08);
+  color: #E68C00;
 }
 
 .nav {
