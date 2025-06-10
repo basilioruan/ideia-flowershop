@@ -28,4 +28,11 @@
 
 .link {
   margin-right: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.linkIcon {
+  margin-right: 5px;
+  font-size: 28px;
 }
