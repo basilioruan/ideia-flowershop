@@ -31,7 +31,7 @@ export default function Header() {
             <FaInfoCircle className={styles.linkIcon} /> QUEM SOMOS
           </Link>
 
-          <Link href='/'>
+          <Link href='/' className={styles.link}>
             <FaPhoneAlt className={styles.linkIcon} /> FALE CONOSCO
           </Link>
         </nav>
