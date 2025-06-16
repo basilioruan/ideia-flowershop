@@ -2,12 +2,10 @@ import Image from 'next/image';
 import styles from './styles.module.css';
 import flowershopIcon from '../../../public/assets/flowershop_icon.png';
 import Link from 'next/link';
-import { GiFlowerPot } from 'react-icons/gi';
-import { IoIosHome } from 'react-icons/io';
-import { TbShovelPitchforks } from 'react-icons/tb';
-import { FaInfoCircle, FaPhoneAlt } from 'react-icons/fa';
+import headerData from './data/header.data';
 
 export default function Header() {
+
   return (
     <>
       <header className={styles.header}>
@@ -15,25 +13,11 @@ export default function Header() {
           <Image src={flowershopIcon} className={styles.image} alt='Ícone Ideia Floricultura' />
         </section>
         <nav className={styles.nav}>
-          <Link href='/' className={styles.link}>
-            <IoIosHome className={styles.linkIcon} /> INÍCIO
-          </Link>
-
-          <Link href='/' className={styles.link}>
-            <GiFlowerPot className={styles.linkIcon} />  PRODUTOS
-          </Link>
-
-          <Link href='/' className={styles.link}>
-            <TbShovelPitchforks className={styles.linkIcon} /> SERVIÇOS
-          </Link>
-
-          <Link href='/' className={styles.link}>
-            <FaInfoCircle className={styles.linkIcon} /> QUEM SOMOS
-          </Link>
-
-          <Link href='/' className={styles.link}>
-            <FaPhoneAlt className={styles.linkIcon} /> FALE CONOSCO
-          </Link>
+          {headerData.map(link => (
+            <Link key={link.name} href={link.href} className={styles.link}>
+              <link.icon className={styles.linkIcon} /> {link.name}
+            </Link>
+          ))}
         </nav>
       </header>
     </>
