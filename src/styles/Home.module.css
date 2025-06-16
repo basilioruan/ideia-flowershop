@@ -9,7 +9,7 @@
   position: relative;
 }
 
-.mainText {
+.productMainText {
   position: absolute;
   left: 240px;
   top: 145px;
@@ -18,7 +18,7 @@
   font-weight: bold;
 }
 
-.secondaryText {
+.productSecondaryText {
   position: absolute;
   left: 240px;
   top: 210px;
@@ -43,6 +43,50 @@
 }
 
 .productBtn:hover {
+  background-color: #E6B800;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.serviceMainText {
+  position: absolute;
+  right: 240px;
+  top: 145px;
+  font-size: 40px;
+  font-family: 'Marcellus';
+  font-weight: bold;
+  color: white;
+}
+
+.serviceSecondaryText {
+  position: absolute;
+  right: 240px;
+  top: 210px;
+  font-size: 26px;
+  font-family: 'Marcellus';
+  font-weight: thin;
+  color: white;
+}
+
+.serviceBtn {
+  position: absolute;
+  right: 240px;
+  top: 275px;
+  font-size: 26px;
+  font-size: 26px;
+  font-family: 'Marcellus';
+  font-weight: thin;
+  color: white;
+  width: 200px;
+  padding: 8px;
+  background: transparent;
+  border-width: 1px;
+  border-color: white;
+  transition: all 0.4s;
+}
+
+.serviceBtn:hover {
   background-color: #E6B800;
   color: white;
   cursor: pointer;
