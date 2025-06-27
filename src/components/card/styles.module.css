@@ -26,6 +26,8 @@
   padding: 8px;
   background: transparent;
   border-width: 1px;
+  border-color: #4C9A4C;
+  color: #4C9A4C;
   transition: all 0.4s;
 }
 
