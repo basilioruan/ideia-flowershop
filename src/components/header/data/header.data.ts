@@ -19,7 +19,7 @@ const headerData: INavLink[] = [
   {
     name: 'PRODUTOS',
     icon: GiFlowerPot,
-    href: '/'
+    href: '/produtos'
   },
   {
     name: 'SERVIÇOS',
