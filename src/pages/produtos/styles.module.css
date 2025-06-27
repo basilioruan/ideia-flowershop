@@ -1,26 +1,35 @@
+.pageContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
 .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
-  padding: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
 }
 
 /* Responsividade para tablets */
 @media (max-width: 768px) {
+  .pageContainer {
+    padding: 1.5rem;
+  }
+  
   .container {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
-    padding: 1.5rem;
   }
 }
 
 /* Responsividade para mobile */
 @media (max-width: 480px) {
+  .pageContainer {
+    padding: 1rem;
+  }
+  
   .container {
     grid-template-columns: 1fr;
     gap: 1rem;
-    padding: 1rem;
   }
 }
