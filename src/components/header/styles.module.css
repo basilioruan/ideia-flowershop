@@ -63,9 +63,6 @@
   font-size: 2rem;
   color: #E6B800;
   cursor: pointer;
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
   z-index: 1001;
   transition: color 0.3s;
 }
