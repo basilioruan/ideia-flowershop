@@ -32,8 +32,13 @@
   color: #E6B800;
 }
 
-/* Cabeçalho do produto */
-.productHeader {
+/* Hero Section - Layout principal */
+.heroSection {
+  margin-bottom: 3rem;
+}
+
+/* Título e ações */
+.titleSection {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,47 +54,40 @@
   font-family: 'Marcellus', serif;
 }
 
-.headerActions {
+.actionButtons {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
+}
+
+.favoriteBtn,
+.shareBtn {
+  background: transparent;
+  border: 2px solid;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1.2rem;
 }
 
 .favoriteBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  border: 2px solid #e74c3c;
+  border-color: #e74c3c;
   color: #e74c3c;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-weight: 500;
 }
 
-.favoriteBtn:hover {
-  background: #e74c3c;
-  color: white;
-}
-
+.favoriteBtn:hover,
 .favoriteActive {
   background: #e74c3c;
   color: white;
 }
 
 .shareBtn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  border: 2px solid #E6B800;
+  border-color: #E6B800;
   color: #E6B800;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-weight: 500;
 }
 
 .shareBtn:hover {
@@ -97,37 +95,74 @@
   color: white;
 }
 
-/* Container principal do produto */
-.productContainer {
+/* Container principal */
+.mainContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  margin-bottom: 4rem;
+  gap: 3rem;
+  align-items: start;
 }
 
-/* Coluna da esquerda - Imagem */
-.leftColumn {
+/* Container da imagem */
+.imageContainer {
   display: flex;
   justify-content: center;
 }
 
-.mainImageContainer {
+.productImage {
+  width: 100%;
   max-width: 500px;
-  width: 100%;
-}
-
-.mainImage {
-  width: 100%;
   height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
-/* Coluna da direita - Informações */
-.rightColumn {
+/* Informações do produto */
+.productInfo {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
+}
+
+.infoCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #E6B800;
+}
+
+.infoCard h3 {
+  color: #4C9A4C;
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.infoCard p {
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Grid de características */
+.featureGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(76, 154, 76, 0.05);
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.featureIcon {
+  font-size: 1.2rem;
 }
 
 /* Seções de conteúdo */
@@ -216,26 +251,30 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Seção de cuidados - largura total */
+/* Seção de cuidados reorganizada */
 .careSection {
   margin-bottom: 4rem;
-  background: rgba(230, 184, 0, 0.05);
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid rgba(230, 184, 0, 0.2);
 }
 
-.careSection h3 {
-  color: #E6B800;
-  font-size: 1.8rem;
+.careSection h2 {
+  color: #4C9A4C;
+  font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+  font-family: 'Marcellus', serif;
 }
 
-.careGrid {
+.careContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.careCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
 .careCard {
@@ -245,6 +284,7 @@
   text-align: center;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s;
+  border-top: 4px solid #E6B800;
 }
 
 .careCard:hover {
@@ -252,21 +292,48 @@
 }
 
 .careIcon {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
   display: block;
 }
 
 .careCard h4 {
   color: #4C9A4C;
   margin: 0 0 0.5rem 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
 }
 
 .careCard p {
   color: #666;
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}
+
+/* Card de contato integrado */
+.contactCard {
+  background: linear-gradient(135deg, #4C9A4C 0%, #E6B800 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.contactCard h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+}
+
+.contactCard p {
+  margin: 0 0 1.5rem 0;
+  opacity: 0.9;
+}
+
+.contactActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 /* Produtos relacionados */
@@ -320,32 +387,32 @@
     padding: 1.5rem;
   }
 
-  .productContainer {
+  .mainContent {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
 
-  .productHeader {
+  .titleSection {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
-  }
-
-  .headerActions {
-    width: 100%;
-    justify-content: space-between;
   }
 
   .productTitle {
     font-size: 2rem;
   }
 
-  .contactButtons {
-    flex-direction: column;
+  .careContainer {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .careGrid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  .careCards {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .featureGrid {
+    grid-template-columns: 1fr;
   }
 
   .relatedGrid {
@@ -363,28 +430,31 @@
     font-size: 1.5rem;
   }
 
-  .headerActions {
-    flex-direction: column;
+  .actionButtons {
     gap: 0.5rem;
   }
 
   .favoriteBtn,
   .shareBtn {
-    justify-content: center;
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 
-  .productDescription,
-  .productDetails,
-  .contactSection {
+  .infoCard {
     padding: 1rem;
   }
 
-  .careSection {
-    padding: 1rem;
-  }
-
-  .careGrid {
+  .careCards {
     grid-template-columns: 1fr;
+  }
+
+  .contactCard {
+    padding: 1.5rem;
+  }
+
+  .contactActions {
+    gap: 0.5rem;
   }
 
   .relatedGrid {

@@ -55,70 +55,95 @@ export default function ProdutoDetalhes() {
         </Link>
       </div>
       
-      {/* Cabeçalho do produto */}
-      <div className={styles.productHeader}>
-        <h1 className={styles.productTitle}>{produto.name}</h1>
-        <div className={styles.headerActions}>
-          <button 
-            className={`${styles.favoriteBtn} ${isFavorite ? styles.favoriteActive : ''}`}
-            onClick={() => setIsFavorite(!isFavorite)}
-          >
-            <FaHeart />
-            <span>{isFavorite ? 'Favoritado' : 'Favoritar'}</span>
-          </button>
-          <button className={styles.shareBtn} onClick={handleShare}>
-            <FaShare />
-            <span>Compartilhar</span>
-          </button>
+      {/* Layout em seção única - mais moderno */}
+      <div className={styles.heroSection}>
+        {/* Título principal */}
+        <div className={styles.titleSection}>
+          <h1 className={styles.productTitle}>{produto.name}</h1>
+          <div className={styles.actionButtons}>
+            <button 
+              className={`${styles.favoriteBtn} ${isFavorite ? styles.favoriteActive : ''}`}
+              onClick={() => setIsFavorite(!isFavorite)}
+            >
+              <FaHeart />
+            </button>
+            <button className={styles.shareBtn} onClick={handleShare}>
+              <FaShare />
+            </button>
+          </div>
         </div>
-      </div>
 
-      {/* Container principal reorganizado */}
-      <div className={styles.productContainer}>
-        {/* Coluna da esquerda - Imagem */}
-        <div className={styles.leftColumn}>
-          <div className={styles.mainImageContainer}>
+        {/* Container principal - layout flexível */}
+        <div className={styles.mainContent}>
+          {/* Imagem principal */}
+          <div className={styles.imageContainer}>
             <Image 
               src={produto.img} 
               alt={produto.name}
-              className={styles.mainImage}
+              className={styles.productImage}
               priority
             />
           </div>
-        </div>
 
-        {/* Coluna da direita - Informações */}
-        <div className={styles.rightColumn}>
-          <div className={styles.productDescription}>
-            <h3>Sobre este produto</h3>
-            <p>{produto.descricao}</p>
-          </div>
+          {/* Informações do produto */}
+          <div className={styles.productInfo}>
+            <div className={styles.infoCard}>
+              <h3>Sobre este produto</h3>
+              <p>{produto.descricao}</p>
+            </div>
 
-          <div className={styles.productDetails}>
-            <h3>Características</h3>
-            <div className={styles.featuresList}>
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>🌿</span>
-                <span>Produto natural e fresco</span>
-              </div>
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>🎁</span>
-                <span>Ideal para decoração e presentes</span>
-              </div>
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>📋</span>
-                <span>Cuidados especiais inclusos</span>
-              </div>
-              <div className={styles.feature}>
-                <span className={styles.featureIcon}>🚚</span>
-                <span>Entrega em Itumirim e região</span>
+            <div className={styles.infoCard}>
+              <h3>Características</h3>
+              <div className={styles.featureGrid}>
+                <div className={styles.featureItem}>
+                  <span className={styles.featureIcon}>🌿</span>
+                  <span>Natural e fresco</span>
+                </div>
+                <div className={styles.featureItem}>
+                  <span className={styles.featureIcon}>🎁</span>
+                  <span>Ideal para presentes</span>
+                </div>
+                <div className={styles.featureItem}>
+                  <span className={styles.featureIcon}>📋</span>
+                  <span>Cuidados inclusos</span>
+                </div>
+                <div className={styles.featureItem}>
+                  <span className={styles.featureIcon}>🚚</span>
+                  <span>Entrega local</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          <div className={styles.contactSection}>
-            <h3>Interessado? Entre em contato!</h3>
-            <div className={styles.contactButtons}>
+      {/* Seção de cuidados integrada */}
+      <div className={styles.careSection}>
+        <h2>Guia de Cuidados</h2>
+        <div className={styles.careContainer}>
+          <div className={styles.careCards}>
+            <div className={styles.careCard}>
+              <div className={styles.careIcon}>💧</div>
+              <h4>Rega</h4>
+              <p>2-3 vezes por semana, solo úmido mas não encharcado</p>
+            </div>
+            <div className={styles.careCard}>
+              <div className={styles.careIcon}>☀️</div>
+              <h4>Luz</h4>
+              <p>Luz indireta, evite sol direto</p>
+            </div>
+            <div className={styles.careCard}>
+              <div className={styles.careIcon}>🌡️</div>
+              <h4>Temperatura</h4>
+              <p>18°C a 25°C, proteja do frio</p>
+            </div>
+          </div>
+          
+          {/* Seção de contato integrada */}
+          <div className={styles.contactCard}>
+            <h3>Gostou? Entre em contato!</h3>
+            <p>Tire suas dúvidas ou faça seu pedido</p>
+            <div className={styles.contactActions}>
               <button 
                 className={styles.whatsappBtn}
                 onClick={handleWhatsAppContact}
@@ -135,33 +160,6 @@ export default function ProdutoDetalhes() {
                 <span>Instagram</span>
               </Link>
             </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Seção de cuidados - agora em largura total */}
-      <div className={styles.careSection}>
-        <h3>Como cuidar do seu {produto.name}</h3>
-        <div className={styles.careGrid}>
-          <div className={styles.careCard}>
-            <div className={styles.careIcon}>💧</div>
-            <h4>Rega</h4>
-            <p>Mantenha o solo úmido, mas não encharcado. Regue 2-3 vezes por semana.</p>
-          </div>
-          <div className={styles.careCard}>
-            <div className={styles.careIcon}>☀️</div>
-            <h4>Iluminação</h4>
-            <p>Prefere luz indireta ou meia-sombra. Evite sol direto nas horas mais quentes.</p>
-          </div>
-          <div className={styles.careCard}>
-            <div className={styles.careIcon}>🌡️</div>
-            <h4>Temperatura</h4>
-            <p>Temperatura ideal entre 18°C e 25°C. Proteja de correntes de ar frio.</p>
-          </div>
-          <div className={styles.careCard}>
-            <div className={styles.careIcon}>🌱</div>
-            <h4>Fertilização</h4>
-            <p>Fertilize mensalmente com adubo orgânico para manter a planta saudável.</p>
           </div>
         </div>
       </div>
