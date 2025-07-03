@@ -13,6 +13,7 @@
   color: #666;
 }
 
+/* Botão voltar */
 .backButton {
   margin-bottom: 1rem;
 }
@@ -31,70 +32,14 @@
   color: #E6B800;
 }
 
-.productContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3rem;
-}
-
-.imageSection {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.mainImageContainer {
-  position: relative;
-  max-width: 500px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-.mainImage {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.favoriteBtn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  color: #ccc;
-}
-
-.favoriteBtn:hover {
-  background: white;
-  transform: scale(1.1);
-}
-
-.favoriteActive {
-  color: #e74c3c;
-}
-
-.infoSection {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
+/* Cabeçalho do produto */
 .productHeader {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(230, 184, 0, 0.2);
 }
 
 .productTitle {
@@ -104,18 +49,47 @@
   font-family: 'Marcellus', serif;
 }
 
+.headerActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.favoriteBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: 500;
+}
+
+.favoriteBtn:hover {
+  background: #e74c3c;
+  color: white;
+}
+
+.favoriteActive {
+  background: #e74c3c;
+  color: white;
+}
+
 .shareBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   background: transparent;
   border: 2px solid #E6B800;
   color: #E6B800;
+  padding: 0.75rem 1.5rem;
   border-radius: 8px;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   transition: all 0.3s;
+  font-weight: 500;
 }
 
 .shareBtn:hover {
@@ -123,9 +97,42 @@
   color: white;
 }
 
+/* Container principal do produto */
+.productContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+/* Coluna da esquerda - Imagem */
+.leftColumn {
+  display: flex;
+  justify-content: center;
+}
+
+.mainImageContainer {
+  max-width: 500px;
+  width: 100%;
+}
+
+.mainImage {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Coluna da direita - Informações */
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Seções de conteúdo */
 .productDescription,
 .productDetails,
-.careInstructions,
 .contactSection {
   background: rgba(230, 184, 0, 0.05);
   padding: 1.5rem;
@@ -135,7 +142,6 @@
 
 .productDescription h3,
 .productDetails h3,
-.careInstructions h3,
 .contactSection h3 {
   color: #E6B800;
   margin: 0 0 1rem 0;
@@ -148,46 +154,29 @@
   margin: 0;
 }
 
-.productDetails ul {
-  margin: 0;
-  padding-left: 1.5rem;
-  color: #666;
-}
-
-.productDetails li {
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
-}
-
-.careGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.careItem {
+/* Lista de características redesenhada */
+.featuresList {
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
   gap: 1rem;
 }
 
-.careIcon {
+.feature {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: rgba(76, 154, 76, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid #4C9A4C;
+}
+
+.featureIcon {
   font-size: 1.5rem;
   flex-shrink: 0;
 }
 
-.careItem strong {
-  color: #4C9A4C;
-  display: block;
-  margin-bottom: 0.25rem;
-}
-
-.careItem p {
-  color: #666;
-  margin: 0;
-  font-size: 0.9rem;
-}
-
+/* Botões de contato */
 .contactButtons {
   display: flex;
   gap: 1rem;
@@ -227,6 +216,60 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* Seção de cuidados - largura total */
+.careSection {
+  margin-bottom: 4rem;
+  background: rgba(230, 184, 0, 0.05);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(230, 184, 0, 0.2);
+}
+
+.careSection h3 {
+  color: #E6B800;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.careGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.careCard {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.careCard:hover {
+  transform: translateY(-4px);
+}
+
+.careIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.careCard h4 {
+  color: #4C9A4C;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.careCard p {
+  color: #666;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Produtos relacionados */
 .relatedSection {
   margin-top: 4rem;
 }
@@ -271,6 +314,7 @@
   text-align: center;
 }
 
+/* Responsividade para tablets */
 @media (max-width: 768px) {
   .pageContainer {
     padding: 1.5rem;
@@ -281,13 +325,19 @@
     gap: 2rem;
   }
 
-  .productTitle {
-    font-size: 2rem;
-  }
-
   .productHeader {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .headerActions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .productTitle {
+    font-size: 2rem;
   }
 
   .contactButtons {
@@ -295,7 +345,7 @@
   }
 
   .careGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
   .relatedGrid {
@@ -303,6 +353,7 @@
   }
 }
 
+/* Responsividade para mobile */
 @media (max-width: 480px) {
   .pageContainer {
     padding: 1rem;
@@ -312,16 +363,28 @@
     font-size: 1.5rem;
   }
 
+  .headerActions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .favoriteBtn,
+  .shareBtn {
+    justify-content: center;
+  }
+
   .productDescription,
   .productDetails,
-  .careInstructions,
   .contactSection {
     padding: 1rem;
   }
 
-  .careItem {
-    flex-direction: column;
-    text-align: center;
+  .careSection {
+    padding: 1rem;
+  }
+
+  .careGrid {
+    grid-template-columns: 1fr;
   }
 
   .relatedGrid {

@@ -55,8 +55,28 @@ export default function ProdutoDetalhes() {
         </Link>
       </div>
       
+      {/* Cabeçalho do produto */}
+      <div className={styles.productHeader}>
+        <h1 className={styles.productTitle}>{produto.name}</h1>
+        <div className={styles.headerActions}>
+          <button 
+            className={`${styles.favoriteBtn} ${isFavorite ? styles.favoriteActive : ''}`}
+            onClick={() => setIsFavorite(!isFavorite)}
+          >
+            <FaHeart />
+            <span>{isFavorite ? 'Favoritado' : 'Favoritar'}</span>
+          </button>
+          <button className={styles.shareBtn} onClick={handleShare}>
+            <FaShare />
+            <span>Compartilhar</span>
+          </button>
+        </div>
+      </div>
+
+      {/* Container principal reorganizado */}
       <div className={styles.productContainer}>
-        <div className={styles.imageSection}>
+        {/* Coluna da esquerda - Imagem */}
+        <div className={styles.leftColumn}>
           <div className={styles.mainImageContainer}>
             <Image 
               src={produto.img} 
@@ -64,65 +84,36 @@ export default function ProdutoDetalhes() {
               className={styles.mainImage}
               priority
             />
-            <button 
-              className={`${styles.favoriteBtn} ${isFavorite ? styles.favoriteActive : ''}`}
-              onClick={() => setIsFavorite(!isFavorite)}
-            >
-              <FaHeart />
-            </button>
-          </div>
-
-          {/* Seção de cuidados - movida para baixo da imagem */}
-          <div className={styles.careInstructions}>
-            <h3>Cuidados</h3>
-            <div className={styles.careGrid}>
-              <div className={styles.careItem}>
-                <span className={styles.careIcon}>💧</span>
-                <div>
-                  <strong>Rega</strong>
-                  <p>Mantenha o solo úmido, mas não encharcado</p>
-                </div>
-              </div>
-              <div className={styles.careItem}>
-                <span className={styles.careIcon}>☀️</span>
-                <div>
-                  <strong>Luz</strong>
-                  <p>Luz indireta ou meia-sombra</p>
-                </div>
-              </div>
-              <div className={styles.careItem}>
-                <span className={styles.careIcon}>🌡️</span>
-                <div>
-                  <strong>Temperatura</strong>
-                  <p>Entre 18°C e 25°C</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
 
-        {/* Seção de informações */}
-        <div className={styles.infoSection}>
-          <div className={styles.productHeader}>
-            <h1 className={styles.productTitle}>{produto.name}</h1>
-            <button className={styles.shareBtn} onClick={handleShare}>
-              <FaShare />
-            </button>
-          </div>
-
+        {/* Coluna da direita - Informações */}
+        <div className={styles.rightColumn}>
           <div className={styles.productDescription}>
-            <h3>Descrição</h3>
+            <h3>Sobre este produto</h3>
             <p>{produto.descricao}</p>
           </div>
 
           <div className={styles.productDetails}>
             <h3>Características</h3>
-            <ul>
-              <li>Produto natural e fresco</li>
-              <li>Ideal para decoração e presentes</li>
-              <li>Cuidados especiais inclusos</li>
-              <li>Entrega em Itumirim e região</li>
-            </ul>
+            <div className={styles.featuresList}>
+              <div className={styles.feature}>
+                <span className={styles.featureIcon}>🌿</span>
+                <span>Produto natural e fresco</span>
+              </div>
+              <div className={styles.feature}>
+                <span className={styles.featureIcon}>🎁</span>
+                <span>Ideal para decoração e presentes</span>
+              </div>
+              <div className={styles.feature}>
+                <span className={styles.featureIcon}>📋</span>
+                <span>Cuidados especiais inclusos</span>
+              </div>
+              <div className={styles.feature}>
+                <span className={styles.featureIcon}>🚚</span>
+                <span>Entrega em Itumirim e região</span>
+              </div>
+            </div>
           </div>
 
           <div className={styles.contactSection}>
@@ -144,6 +135,33 @@ export default function ProdutoDetalhes() {
                 <span>Instagram</span>
               </Link>
             </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Seção de cuidados - agora em largura total */}
+      <div className={styles.careSection}>
+        <h3>Como cuidar do seu {produto.name}</h3>
+        <div className={styles.careGrid}>
+          <div className={styles.careCard}>
+            <div className={styles.careIcon}>💧</div>
+            <h4>Rega</h4>
+            <p>Mantenha o solo úmido, mas não encharcado. Regue 2-3 vezes por semana.</p>
+          </div>
+          <div className={styles.careCard}>
+            <div className={styles.careIcon}>☀️</div>
+            <h4>Iluminação</h4>
+            <p>Prefere luz indireta ou meia-sombra. Evite sol direto nas horas mais quentes.</p>
+          </div>
+          <div className={styles.careCard}>
+            <div className={styles.careIcon}>🌡️</div>
+            <h4>Temperatura</h4>
+            <p>Temperatura ideal entre 18°C e 25°C. Proteja de correntes de ar frio.</p>
+          </div>
+          <div className={styles.careCard}>
+            <div className={styles.careIcon}>🌱</div>
+            <h4>Fertilização</h4>
+            <p>Fertilize mensalmente com adubo orgânico para manter a planta saudável.</p>
           </div>
         </div>
       </div>
