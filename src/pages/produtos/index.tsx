@@ -12,7 +12,8 @@ export default function Produtos() {
     <div className={styles.pageContainer}>
       <PageTitle title="Produtos" icon={productsIcon} />
       <div className={styles.container}>
-        {produtosMock.map(produto => <Card key={produto.id} img={produto.img} title={produto.name} description={produto.descricao} /> )}
+        {produtosMock.map(produto => 
+          <Card key={produto.id} id={produto.id} img={produto.img} title={produto.name} description={produto.descricao} /> )}
       </div> 
     </div>
   )

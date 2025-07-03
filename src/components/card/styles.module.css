@@ -37,3 +37,14 @@
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
+.btnDetail:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btnDetail:disabled:hover {
+  background: transparent;
+  color: #4C9A4C;
+  box-shadow: none;
+}
