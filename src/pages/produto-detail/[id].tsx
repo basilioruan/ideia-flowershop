@@ -48,30 +48,59 @@ export default function ProdutoDetalhes() {
 
   return (
     <div className={styles.pageContainer}>
-      <div className={styles.backButton}>
-        <Link href="/produtos" className={styles.backLink}>
-          <FaArrowLeft />
-          <span>Voltar aos produtos</span>
-        </Link>
-      </div>
-      
-      {/* Layout em seção única - mais moderno */}
-      <div className={styles.heroSection}>
-        {/* Título principal */}
-        <div className={styles.titleSection}>
-          <h1 className={styles.productTitle}>{produto.name}</h1>
-          <div className={styles.actionButtons}>
-            <button 
-              className={`${styles.favoriteBtn} ${isFavorite ? styles.favoriteActive : ''}`}
-              onClick={() => setIsFavorite(!isFavorite)}
-            >
-              <FaHeart />
-            </button>
-            <button className={styles.shareBtn} onClick={handleShare}>
-              <FaShare />
-            </button>
+      {/* Header redesenhado */}
+      <div className={styles.headerContainer}>
+        {/* Navegação superior */}
+        <div className={styles.topNav}>
+          <Link href="/produtos" className={styles.backLink}>
+            <FaArrowLeft />
+            <span>Produtos</span>
+          </Link>
+          <div className={styles.breadcrumb}>
+            <span>Produtos</span>
+            <span className={styles.separator}>›</span>
+            <span className={styles.currentPage}>{produto.name}</span>
           </div>
         </div>
+
+        {/* Hero header */}
+        <div className={styles.heroHeader}>
+          <div className={styles.titleGroup}>
+            <div className={styles.categoryTag}>🌿 Floricultura</div>
+            <h1 className={styles.productTitle}>{produto.name}</h1>
+          </div>
+          
+          <div className={styles.actionGroup}>
+            <div className={styles.actionButtons}>
+              <button 
+                className={`${styles.favoriteBtn} ${isFavorite ? styles.favoriteActive : ''}`}
+                onClick={() => setIsFavorite(!isFavorite)}
+                title={isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
+              >
+                <FaHeart />
+                <span>{isFavorite ? 'Favoritado' : 'Favoritar'}</span>
+              </button>
+              <button 
+                className={styles.shareBtn} 
+                onClick={handleShare}
+                title="Compartilhar produto"
+              >
+                <FaShare />
+                <span>Compartilhar</span>
+              </button>
+            </div>
+            
+            {/* Badge de disponibilidade */}
+            <div className={styles.availabilityBadge}>
+              <span className={styles.statusDot}></span>
+              <span>Disponível para entrega</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Layout em seção única - mais moderno */}
+      <div className={styles.heroSection}>
 
         {/* Container principal - layout flexível */}
         <div className={styles.mainContent}>
