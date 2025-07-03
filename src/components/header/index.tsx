@@ -5,6 +5,7 @@ import Link from 'next/link';
 import headerData from './data/header.data';
 import { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { FaInstagram, FaWhatsapp, FaPhone, FaEnvelope } from 'react-icons/fa';
 import ContactModal from '../contact-modal';
 
 export default function Header() {
@@ -15,10 +16,10 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleLinkClick = (linkName: string, href: string) => {
+  const handleLinkClick = (linkName: string) => {
     if (linkName === 'FALE CONOSCO') {
       setIsContactModalOpen(true);
-      setIsMenuOpen(false); // Fecha o menu mobile se estiver aberto
+      setIsMenuOpen(false);
     }
   };
 
@@ -29,19 +30,23 @@ export default function Header() {
         <div className={styles.topBar}>
           <div className={styles.topBarContainer}>
             <div className={styles.contactInfo}>
-              <span className={styles.contactItem}>
-                📞 (35) 99741-7863
-              </span>
-              <span className={styles.contactItem}>
-                📧 ideasfloricultura@hotmail.com
-              </span>
+              <a href="tel:+5535997417863" className={styles.contactItem}>
+                <FaPhone className={styles.contactIcon} />
+                <span>(35) 99741-7863</span>
+              </a>
+              <a href="mailto:ideasfloricultura@hotmail.com" className={styles.contactItem}>
+                <FaEnvelope className={styles.contactIcon} />
+                <span>ideasfloricultura@hotmail.com</span>
+              </a>
             </div>
             <div className={styles.socialLinks}>
               <a href="https://instagram.com/ideasfloricultura" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                📷 Instagram
+                <FaInstagram className={styles.socialIcon} />
+                <span>Instagram</span>
               </a>
               <a href="https://wa.me/5535997417863" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                💬 WhatsApp
+                <FaWhatsapp className={styles.socialIcon} />
+                <span>WhatsApp</span>
               </a>
             </div>
           </div>
@@ -69,7 +74,7 @@ export default function Header() {
                 link.name === 'FALE CONOSCO' ? (
                   <button 
                     key={link.name} 
-                    onClick={() => handleLinkClick(link.name, link.href)}
+                    onClick={() => handleLinkClick(link.name)}
                     className={`${styles.navLink} ${styles.contactButton}`}
                   >
                     <link.icon className={styles.navIcon} />
@@ -106,7 +111,7 @@ export default function Header() {
                 link.name === 'FALE CONOSCO' ? (
                   <button 
                     key={link.name} 
-                    onClick={() => handleLinkClick(link.name, link.href)}
+                    onClick={() => handleLinkClick(link.name)}
                     className={`${styles.mobileNavLink} ${styles.mobileContactButton}`}
                   >
                     <link.icon className={styles.mobileNavIcon} />

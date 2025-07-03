@@ -29,8 +29,24 @@
 .contactItem {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
+  color: white;
+  text-decoration: none;
   opacity: 0.9;
+  transition: all 0.3s;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.contactItem:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.contactIcon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
 }
 
 .socialLinks {
@@ -39,15 +55,26 @@
 }
 
 .socialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   color: white;
   text-decoration: none;
   opacity: 0.9;
-  transition: opacity 0.3s;
+  transition: all 0.3s;
   font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
 }
 
 .socialLink:hover {
   opacity: 1;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.socialIcon {
+  font-size: 1rem;
 }
 
 /* Header Principal */
