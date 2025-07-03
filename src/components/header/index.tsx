@@ -5,12 +5,21 @@ import Link from 'next/link';
 import headerData from './data/header.data';
 import { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
+import ContactModal from '../contact-modal';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleLinkClick = (linkName: string, href: string) => {
+    if (linkName === 'FALE CONOSCO') {
+      setIsContactModalOpen(true);
+      setIsMenuOpen(false); // Fecha o menu mobile se estiver aberto
+    }
   };
 
   return (
@@ -24,9 +33,19 @@ export default function Header() {
           {/* Menu Desktop */}
           <nav className={styles.nav}>
             {headerData.map(link => (
-              <Link key={link.name} href={link.href} className={styles.link}>
-                <link.icon className={styles.linkIcon} /> {link.name}
-              </Link>
+              link.name === 'FALE CONOSCO' ? (
+                <button 
+                  key={link.name} 
+                  onClick={() => handleLinkClick(link.name, link.href)}
+                  className={`${styles.link} ${styles.contactButton}`}
+                >
+                  <link.icon className={styles.linkIcon} /> {link.name}
+                </button>
+              ) : (
+                <Link key={link.name} href={link.href} className={styles.link}>
+                  <link.icon className={styles.linkIcon} /> {link.name}
+                </Link>
+              )
             ))}
           </nav>
 
@@ -39,17 +58,32 @@ export default function Header() {
         {/* Menu Mobile */}
         <nav className={`${styles.mobileNav} ${isMenuOpen ? styles.mobileNavOpen : ''}`}>
           {headerData.map(link => (
-            <Link 
-              key={link.name} 
-              href={link.href} 
-              className={styles.mobileLink}
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <link.icon className={styles.mobileLinkIcon} /> {link.name}
-            </Link>
+            link.name === 'FALE CONOSCO' ? (
+              <button 
+                key={link.name} 
+                onClick={() => handleLinkClick(link.name, link.href)}
+                className={`${styles.mobileLink} ${styles.mobileContactButton}`}
+              >
+                <link.icon className={styles.mobileLinkIcon} /> {link.name}
+              </button>
+            ) : (
+              <Link 
+                key={link.name} 
+                href={link.href} 
+                className={styles.mobileLink}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <link.icon className={styles.mobileLinkIcon} /> {link.name}
+              </Link>
+            )
           ))}
         </nav>
       </header>
+      
+      <ContactModal 
+        isOpen={isContactModalOpen} 
+        onClose={() => setIsContactModalOpen(false)} 
+      />
     </>
   );
 }
