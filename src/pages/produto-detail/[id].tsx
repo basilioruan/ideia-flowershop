@@ -142,7 +142,7 @@ export default function ProdutoDetalhes() {
 
       {/* Seção de cuidados expandida - largura total */}
       <div className={styles.careSection}>
-        <h2>Guia de Cuidados para seu {produto.name}</h2>
+        <h2>Guia de Cuidados</h2>
         <div className={styles.careGrid}>
           <div className={styles.careCard}>
             <div className={styles.careIcon}>💧</div>

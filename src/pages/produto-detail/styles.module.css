@@ -125,7 +125,7 @@
 }
 
 .infoCard {
-  background: white;
+  background-color: #FFF8DC;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
@@ -219,6 +219,8 @@
 
 .whatsappBtn,
 .instagramBtn {
+  width: 100%;
+  justify-content: center;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -271,7 +273,7 @@
 }
 
 .careCard {
-  background: white;
+  background-color: #FFF8DC;
   padding: 2rem;
   border-radius: 16px;
   text-align: center;
@@ -280,16 +282,6 @@
   border-top: 4px solid #E6B800;
   position: relative;
   overflow: hidden;
-}
-
-.careCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, #E6B800 0%, #4C9A4C 100%);
 }
 
 .careCard:hover {
@@ -339,7 +331,7 @@
 
 .contactActions {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   gap: 0.75rem;
 }
 
