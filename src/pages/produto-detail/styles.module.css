@@ -264,50 +264,57 @@
   font-family: 'Marcellus', serif;
 }
 
-.careContainer {
+.careGrid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
-  align-items: start;
-}
-
-.careCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
 .careCard {
   background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
+  padding: 2rem;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
   border-top: 4px solid #E6B800;
+  position: relative;
+  overflow: hidden;
+}
+
+.careCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #E6B800 0%, #4C9A4C 100%);
 }
 
 .careCard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 .careIcon {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
   display: block;
 }
 
 .careCard h4 {
   color: #4C9A4C;
-  margin: 0 0 0.5rem 0;
-  font-size: 1.1rem;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 
 .careCard p {
   color: #666;
   margin: 0;
-  line-height: 1.4;
-  font-size: 0.9rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
 }
 
 /* Card de contato integrado */
@@ -402,13 +409,9 @@
     font-size: 2rem;
   }
 
-  .careContainer {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .careCards {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  .careGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
   }
 
   .featureGrid {
@@ -445,8 +448,13 @@
     padding: 1rem;
   }
 
-  .careCards {
+  .careGrid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .careCard {
+    padding: 1.5rem;
   }
 
   .contactCard {

@@ -113,53 +113,56 @@ export default function ProdutoDetalhes() {
                 </div>
               </div>
             </div>
+
+            {/* Seção de contato movida para cá */}
+            <div className={styles.contactCard}>
+              <h3>Gostou? Entre em contato!</h3>
+              <p>Tire suas dúvidas ou faça seu pedido</p>
+              <div className={styles.contactActions}>
+                <button 
+                  className={styles.whatsappBtn}
+                  onClick={handleWhatsAppContact}
+                >
+                  <FaWhatsapp />
+                  <span>WhatsApp</span>
+                </button>
+                <Link 
+                  href="https://instagram.com/ideasfloricultura" 
+                  target="_blank"
+                  className={styles.instagramBtn}
+                >
+                  <FaInstagram />
+                  <span>Instagram</span>
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Seção de cuidados integrada */}
+      {/* Seção de cuidados expandida - largura total */}
       <div className={styles.careSection}>
-        <h2>Guia de Cuidados</h2>
-        <div className={styles.careContainer}>
-          <div className={styles.careCards}>
-            <div className={styles.careCard}>
-              <div className={styles.careIcon}>💧</div>
-              <h4>Rega</h4>
-              <p>2-3 vezes por semana, solo úmido mas não encharcado</p>
-            </div>
-            <div className={styles.careCard}>
-              <div className={styles.careIcon}>☀️</div>
-              <h4>Luz</h4>
-              <p>Luz indireta, evite sol direto</p>
-            </div>
-            <div className={styles.careCard}>
-              <div className={styles.careIcon}>🌡️</div>
-              <h4>Temperatura</h4>
-              <p>18°C a 25°C, proteja do frio</p>
-            </div>
+        <h2>Guia de Cuidados para seu {produto.name}</h2>
+        <div className={styles.careGrid}>
+          <div className={styles.careCard}>
+            <div className={styles.careIcon}>💧</div>
+            <h4>Rega</h4>
+            <p>Mantenha o solo úmido mas não encharcado. Regue 2-3 vezes por semana, verificando a umidade do solo com o dedo.</p>
           </div>
-          
-          {/* Seção de contato integrada */}
-          <div className={styles.contactCard}>
-            <h3>Gostou? Entre em contato!</h3>
-            <p>Tire suas dúvidas ou faça seu pedido</p>
-            <div className={styles.contactActions}>
-              <button 
-                className={styles.whatsappBtn}
-                onClick={handleWhatsAppContact}
-              >
-                <FaWhatsapp />
-                <span>WhatsApp</span>
-              </button>
-              <Link 
-                href="https://instagram.com/ideasfloricultura" 
-                target="_blank"
-                className={styles.instagramBtn}
-              >
-                <FaInstagram />
-                <span>Instagram</span>
-              </Link>
-            </div>
+          <div className={styles.careCard}>
+            <div className={styles.careIcon}>☀️</div>
+            <h4>Iluminação</h4>
+            <p>Prefere luz indireta ou meia-sombra. Evite sol direto nas horas mais quentes do dia para não queimar as folhas.</p>
+          </div>
+          <div className={styles.careCard}>
+            <div className={styles.careIcon}>🌡️</div>
+            <h4>Temperatura</h4>
+            <p>Temperatura ideal entre 18°C e 25°C. Proteja de correntes de ar frio e mudanças bruscas de temperatura.</p>
+          </div>
+          <div className={styles.careCard}>
+            <div className={styles.careIcon}>🌱</div>
+            <h4>Fertilização</h4>
+            <p>Fertilize mensalmente com adubo orgânico ou NPK diluído para manter a planta saudável e com crescimento vigoroso.</p>
           </div>
         </div>
       </div>
