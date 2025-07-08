@@ -2,13 +2,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './styles.module.css';
 import { FaInstagram, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import { GiFlowerPot } from 'react-icons/gi';
-import { IoIosHome } from 'react-icons/io';
-import { TbShovelPitchforks } from 'react-icons/tb';
-import { FaInfoCircle } from 'react-icons/fa';
 import { useState } from 'react';
 import ContactModal from '../contact-modal';
 import flowershopIcon from '../../../public/assets/flowershop_icon.png';
+import navigationData from '@/commons/data/navigation.data';
+import { contactData, ContactItem } from '@/commons/data/contact.data';
+import { ContactEnum } from '@/commons/enums/contact.enum';
 
 export default function Footer() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -19,12 +18,9 @@ export default function Footer() {
     setIsContactModalOpen(true);
   };
 
-  const navigationLinks = [
-    { name: 'Início', icon: IoIosHome, href: '/' },
-    { name: 'Produtos', icon: GiFlowerPot, href: '/produtos' },
-    { name: 'Serviços', icon: TbShovelPitchforks, href: '/servicos' },
-    { name: 'Quem Somos', icon: FaInfoCircle, href: '/' }
-  ];
+  const getContactInfo = (contact: ContactEnum): ContactItem | undefined => {
+    return contactData.find(cd => cd.id === contact);
+  }
 
   return (
     <>
@@ -49,9 +45,9 @@ export default function Footer() {
             </div>
 
             <div className={styles.quickLinks}>
-              <h4 className={styles.sectionTitle}>Navega��o</h4>
+              <h4 className={styles.sectionTitle}>Navegação</h4>
               <nav className={styles.footerNav}>
-                {navigationLinks.map(link => (
+                {navigationData.map(link => (
                   <Link key={link.name} href={link.href} className={styles.footerNavLink}>
                     <link.icon className={styles.footerNavIcon} />
                     <span>{link.name}</span>
@@ -67,17 +63,17 @@ export default function Footer() {
             <div className={styles.contactSection}>
               <h4 className={styles.sectionTitle}>Contato</h4>
               <div className={styles.contactInfo}>
-                <a href="tel:+5535997417863" className={styles.contactItem}>
+                <div className={styles.contactItem}>
                   <FaPhone className={styles.contactIcon} />
-                  <span>(35) 99741-7863</span>
-                </a>
-                <a href="mailto:ideasfloricultura@hotmail.com" className={styles.contactItem}>
+                  <span>{getContactInfo(ContactEnum.PHONE)?.value}</span>
+                </div>
+                <div className={styles.contactItem}>
                   <FaEnvelope className={styles.contactIcon} />
-                  <span>ideasfloricultura@hotmail.com</span>
-                </a>
+                  <span>{getContactInfo(ContactEnum.EMAIL)?.value}</span>
+                </div>
                 <div className={styles.contactItem}>
                   <FaMapMarkerAlt className={styles.contactIcon} />
-                  <span>Macuco de Minas - MG</span>
+                  <span>{getContactInfo(ContactEnum.ADDRESS)?.value}</span>
                 </div>
               </div>
             </div>
@@ -85,13 +81,13 @@ export default function Footer() {
             <div className={styles.socialSection}>
               <h4 className={styles.sectionTitle}>Redes Sociais</h4>
               <div className={styles.socialLinks}>
-                <a href="https://instagram.com/ideasfloricultura" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <a href={getContactInfo(ContactEnum.INSTAGRAM)?.link} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                   <FaInstagram className={styles.socialIcon} />
-                  <span>Instagram</span>
+                  <span>{getContactInfo(ContactEnum.INSTAGRAM)?.value}</span>
                 </a>
-                <a href="https://wa.me/5535997417863" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+                <a href={getContactInfo(ContactEnum.WHATSAPP)?.link} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                   <FaWhatsapp className={styles.socialIcon} />
-                  <span>WhatsApp</span>
+                  <span>{getContactInfo(ContactEnum.WHATSAPP)?.value}</span>
                 </a>
               </div>
               <p className={styles.socialDescription}>
@@ -105,9 +101,6 @@ export default function Footer() {
           <div className={styles.footerBottomContainer}>
             <p className={styles.copyright}>
               {getCurrentYear()} © Ideas Floricultura - Todos os direitos reservados
-            </p>
-            <p className={styles.location}>
-              Macuco de Minas - MG
             </p>
           </div>
         </div>

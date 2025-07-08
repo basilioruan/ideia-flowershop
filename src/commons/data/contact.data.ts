@@ -1,8 +1,9 @@
 import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaInstagram, FaFacebookF } from 'react-icons/fa';
 import { IconType } from 'react-icons';
+import { ContactEnum } from '../enums/contact.enum';
 
 export interface ContactItem {
-  id: string;
+  id: ContactEnum;
   icon: IconType;
   label: string;
   value: string;
@@ -12,40 +13,39 @@ export interface ContactItem {
 
 export const contactData: ContactItem[] = [
   {
-    id: 'phone',
+    id: ContactEnum.PHONE,
     icon: FaPhone,
     label: 'Telefone',
     value: '(35) 99741-7863'
   },
   {
-    id: 'whatsapp',
+    id: ContactEnum.WHATSAPP,
     icon: FaWhatsapp,
     label: 'WhatsApp',
     value: 'wa.me/message/E56S2CSIOF5XM1',
     link: 'https://wa.me/message/E56S2CSIOF5XM1'
   },
   {
-    id: 'email',
+    id: ContactEnum.EMAIL,
     icon: FaEnvelope,
     label: 'E-mail',
     value: 'ideasfloricultura@hotmail.com',
-    link: 'mailto:ideasfloricultura@hotmail.com'
   },
   {
-    id: 'address',
+    id: ContactEnum.ADDRESS,
     icon: FaMapMarkerAlt,
     label: 'Endereço',
-    value: 'Av. Antonio de Souze, 165\nMacuco de Minas - Itumirim/MG'
+    value: 'Av. Antonio de Souza, 165\nMacuco de Minas - Itumirim/MG'
   },
   {
-    id: 'instagram',
+    id: ContactEnum.INSTAGRAM,
     icon: FaInstagram,
     label: 'Instagram',
     value: '@ideasfloricultura',
     link: 'https://instagram.com/ideasfloricultura'
   },
   {
-    id: 'facebook',
+    id: ContactEnum.FACEBOOK,
     icon: FaFacebookF,
     label: 'Facebook',
     value: 'Ideas Floricultura',

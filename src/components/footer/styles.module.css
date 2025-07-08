@@ -144,21 +144,10 @@
   font-size: 0.95rem;
 }
 
-.contactItem:hover {
-  color: #4C9A4C;
-  transform: translateX(5px);
-}
-
 .contactIcon {
   font-size: 1.1rem;
   color: #E6B800;
-  transition: all 0.3s ease;
   min-width: 20px;
-}
-
-.contactItem:hover .contactIcon {
-  color: #4C9A4C;
-  transform: scale(1.1);
 }
 
 /* Secao de redes sociais */
@@ -220,7 +209,7 @@
   margin: 0 auto;
   padding: 0 1rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   gap: 1rem;
