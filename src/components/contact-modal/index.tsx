@@ -1,9 +1,9 @@
 import React from 'react';
 import Modal from '../modal';
 import styles from './styles.module.css';
-import ContactModalProps from './interface/contact-modal.interface';
 import Link from 'next/link';
-import { contactData } from './data/contact.data';
+import { contactData } from '../../commons/data/contact.data';
+import { ContactModalProps } from '@/types/contact.types';
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const renderContactValue = (item: typeof contactData[0]) => {

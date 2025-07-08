@@ -5,7 +5,7 @@ import Link from 'next/link';
 import produtosMock from '../produtos/mock/produtos.mock';
 import styles from './styles.module.css';
 import { FaArrowLeft, FaHeart, FaShare, FaWhatsapp, FaInstagram } from 'react-icons/fa';
-import { Produto } from '@/types';
+import { Produto } from '@/types/produto.types';
 
 export default function ProdutoDetalhes() {
   const router = useRouter();

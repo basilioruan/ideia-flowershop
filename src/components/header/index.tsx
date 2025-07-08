@@ -2,7 +2,7 @@ import Image from 'next/image';
 import styles from './styles.module.css';
 import flowershopIcon from '../../../public/assets/flowershop_icon.png';
 import Link from 'next/link';
-import headerData from './data/header.data';
+import { navigationData } from '../../commons/data/navigation.data';
 import { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { FaInstagram, FaWhatsapp, FaPhone, FaEnvelope } from 'react-icons/fa';
@@ -70,7 +70,7 @@ export default function Header() {
             
             {/* Navegação Desktop */}
             <nav className={styles.desktopNav}>
-              {headerData.map(link => (
+              {navigationData.map(link => (
                 link.name === 'FALE CONOSCO' ? (
                   <button 
                     key={link.name} 
@@ -107,7 +107,7 @@ export default function Header() {
               </button>
             </div>
             <div className={styles.mobileNavContent}>
-              {headerData.map(link => (
+              {navigationData.map(link => (
                 link.name === 'FALE CONOSCO' ? (
                   <button 
                     key={link.name} 

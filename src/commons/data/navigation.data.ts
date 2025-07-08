@@ -4,13 +4,13 @@ import { IoIosHome } from 'react-icons/io';
 import { TbShovelPitchforks } from 'react-icons/tb';
 import { FaInfoCircle, FaPhoneAlt } from 'react-icons/fa';
 
-interface INavLink {
+export interface INavLink {
   name: string,
   icon: IconType,
   href: string
 }
 
-const headerData: INavLink[] = [
+export const navigationData: INavLink[] = [
   {
     name: 'INÍCIO',
     icon: IoIosHome,
@@ -24,7 +24,7 @@ const headerData: INavLink[] = [
   {
     name: 'SERVIÇOS',
     icon: TbShovelPitchforks,
-    href: '/'
+    href: '/servicos'
   },
   {
     name: 'QUEM SOMOS',
@@ -38,4 +38,4 @@ const headerData: INavLink[] = [
   }
 ];
 
-export default headerData;
+export default navigationData;
