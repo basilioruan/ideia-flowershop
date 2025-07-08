@@ -5,6 +5,11 @@ export interface Produto {
   name: string;
   descricao: string;
   img: StaticImageData;
+  preco: number;
+  categoria: string;
+  disponivel: boolean;
+  rating: number;
+  promocao: boolean;
 }
 
 export interface ProdutoCardProps {

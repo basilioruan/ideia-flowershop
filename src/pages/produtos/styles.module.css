@@ -1,35 +1,373 @@
+/* Main Container */
 .pageContainer {
   max-width: 1400px;
   margin: 0 auto;
   padding: 2rem;
+  min-height: 100vh;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* Search and Controls Section */
+.controlsSection {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.searchContainer {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  z-index: 1;
+}
+
+.searchInput {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: #4C9A4C;
+  box-shadow: 0 0 0 3px rgba(76, 154, 76, 0.1);
+}
+
+.filterToggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #4C9A4C;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.filterToggle:hover {
+  background: #3d7a3d;
+  transform: translateY(-2px);
+}
+
+/* Filters Container */
+.filtersContainer {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
   gap: 2rem;
+  flex-wrap: wrap;
+  border: 1px solid #e0e0e0;
 }
 
-/* Responsividade para tablets */
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.filterGroup label {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.filterSelect {
+  padding: 0.5rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+
+.filterSelect:focus {
+  outline: none;
+  border-color: #4C9A4C;
+}
+
+/* Results Info */
+.resultsInfo {
+  margin-bottom: 1.5rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Products Grid */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Product Card */
+.productCard {
+  background-color: #FFF8DC;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid #f0f0f0;
+}
+
+/* Removed card hover elevation effect */
+
+/* Promotion Tag */
+.stockTag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: #E6B800;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  box-shadow: 0 4px 15px rgba(76, 154, 76, 0.3);
+}
+
+/* Image Container */
+.imageContainer {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+  background: #f8f9fa;
+  cursor: pointer;
+}
+
+.productImage {
+  /* Removed zoom effect */
+}
+
+
+/* Product Info */
+.productInfo {
+  padding: 1.5rem;
+}
+
+.productHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.productName {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+}
+
+/* Product Description */
+.productDescription {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  font-size: 0.95rem;
+}
+
+/* Price Container */
+.priceContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #4C9A4C;
+}
+
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.viewDetailsBtn {
+  flex: 1;
+  background: linear-gradient(135deg, #4C9A4C, #3d7a3d);
+  color: white;
+  border: none;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.viewDetailsBtn:hover {
+  background: linear-gradient(135deg, #3d7a3d, #2d5a2d);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(76, 154, 76, 0.3);
+}
+
+/* No Results */
+.noResults {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #666;
+}
+
+.noResults p {
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-  .pageContainer {
-    padding: 1.5rem;
-  }
-  
-  .container {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-}
-
-/* Responsividade para mobile */
-@media (max-width: 480px) {
   .pageContainer {
     padding: 1rem;
   }
-  
-  .container {
+
+  .controlsSection {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchContainer {
+    min-width: auto;
+  }
+
+  .filtersContainer {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .filterGroup {
+    min-width: auto;
+  }
+
+  .productsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .productCard {
+    border-radius: 15px;
+  }
+
+  .imageContainer {
+    height: 200px;
+  }
+
+  .productInfo {
+    padding: 1rem;
+  }
+
+  .productName {
+    font-size: 1.1rem;
+  }
+
+  .price {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pageContainer {
+    padding: 0.5rem;
+  }
+
+  .productsGrid {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
+  .imageContainer {
+    height: 180px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+}
+
+/* Loading Animation */
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Favorite Button Styles */
+.favoriteBtn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #ccc;
+  transition: all 0.15s ease;
+  padding: 0.25rem;
+  position: relative;
+}
+
+.favoriteEmpty {
+  transition: opacity 0.15s ease;
+}
+
+.favoriteFilled {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ff6b6b;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.favoriteBtn:hover .favoriteEmpty {
+  opacity: 0;
+}
+
+.favoriteBtn:hover .favoriteFilled {
+  opacity: 1;
+}
+
+.favoriteActive {
+  color: #ff6b6b;
 }
