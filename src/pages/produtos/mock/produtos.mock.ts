@@ -1,3 +1,4 @@
+import { Produto } from '@/types/produto.types';
 import rosaImg from '../../../../public/assets/buque_rosas.jpg';
 
 const produtosMock = [
@@ -81,6 +82,6 @@ const produtosMock = [
     disponivel: true,
     prontaEntrega: true
   }
-];
+] as Produto[];
 
 export default produtosMock;

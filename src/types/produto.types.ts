@@ -8,8 +8,7 @@ export interface Produto {
   preco: number;
   categoria: string;
   disponivel: boolean;
-  rating: number;
-  promocao: boolean;
+  prontaEntrega: boolean;
 }
 
 export interface ProdutoCardProps {
