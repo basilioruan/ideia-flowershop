@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import produtosMock from '../produtos/mock/produtos.mock';
 import styles from './styles.module.css';
-import { FaArrowLeft, FaHeart, FaShare, FaWhatsapp, FaInstagram } from 'react-icons/fa';
+import { FaArrowLeft, FaHeart, FaShare, FaWhatsapp, FaInstagram, FaTruck, FaClock } from 'react-icons/fa';
 import { Produto } from '@/types/produto.types';
 
 export default function ProdutoDetalhes() {
@@ -66,8 +66,20 @@ export default function ProdutoDetalhes() {
         {/* Hero header */}
         <div className={styles.heroHeader}>
           <div className={styles.titleGroup}>
-            <div className={styles.categoryTag}>🌿 Floricultura</div>
+            <div className={styles.categoryTag}>🌿 {produto.categoria}</div>
             <h1 className={styles.productTitle}>{produto.name}</h1>
+            {/* Badge de disponibilidade */}
+            {produto.prontaEntrega ? (
+              <div className={styles.availabilityContainer}>
+                <FaTruck className={styles.badgeIcon} />
+                <span>Pronta Entrega</span>
+              </div>
+            ) : (
+              <div className={`${styles.availabilityContainer} ${styles.unavailable}`}>
+                <FaClock className={styles.badgeIcon} />
+                <span>Sob Encomenda</span>
+              </div>
+            )}
           </div>
           
           <div className={styles.actionGroup}>
@@ -78,7 +90,6 @@ export default function ProdutoDetalhes() {
                 title={isFavorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
               >
                 <FaHeart />
-                <span>{isFavorite ? 'Favoritado' : 'Favoritar'}</span>
               </button>
               <button 
                 className={styles.shareBtn} 
@@ -86,14 +97,10 @@ export default function ProdutoDetalhes() {
                 title="Compartilhar produto"
               >
                 <FaShare />
-                <span>Compartilhar</span>
               </button>
             </div>
-            
-            {/* Badge de disponibilidade */}
-            <div className={styles.availabilityBadge}>
-              <span className={styles.statusDot}></span>
-              <span>Disponível para entrega</span>
+            <div className={styles.priceContainer}>
+              <span className={styles.price}>R$ {produto.preco.toFixed(2).replace('.', ',')}</span>
             </div>
           </div>
         </div>
