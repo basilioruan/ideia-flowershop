@@ -8,6 +8,8 @@ import { HiMenu, HiX } from 'react-icons/hi';
 import { FaInstagram, FaWhatsapp, FaPhone, FaEnvelope } from 'react-icons/fa';
 import ContactModal from '../contact-modal';
 import { NavigationEnum } from '@/commons/enums/navigation.enum';
+import { ContactEnum } from '@/commons/enums/contact.enum';
+import { getContactInfo } from '@/commons/utils/contact.utils';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -31,23 +33,23 @@ export default function Header() {
         <div className={styles.topBar}>
           <div className={styles.topBarContainer}>
             <div className={styles.contactInfo}>
-              <a href="tel:+5535997417863" className={styles.contactItem}>
+              <div className={styles.contactItem}>
                 <FaPhone className={styles.contactIcon} />
-                <span>(35) 99741-7863</span>
-              </a>
-              <a href="mailto:ideasfloricultura@hotmail.com" className={styles.contactItem}>
+                <span>{getContactInfo(ContactEnum.PHONE)?.link}</span>
+              </div>
+              <div className={styles.contactItem}>
                 <FaEnvelope className={styles.contactIcon} />
-                <span>ideasfloricultura@hotmail.com</span>
-              </a>
+                <span>{getContactInfo(ContactEnum.EMAIL)?.link}</span>
+              </div>
             </div>
             <div className={styles.socialLinks}>
-              <a href="https://instagram.com/ideasfloricultura" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+              <a href={getContactInfo(ContactEnum.INSTAGRAM)?.link} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                 <FaInstagram className={styles.socialIcon} />
-                <span>Instagram</span>
+                <span>{getContactInfo(ContactEnum.INSTAGRAM)?.value}</span>
               </a>
-              <a href="https://wa.me/5535997417863" target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
+              <a href={getContactInfo(ContactEnum.WHATSAPP)?.link} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
                 <FaWhatsapp className={styles.socialIcon} />
-                <span>WhatsApp</span>
+                <span>{getContactInfo(ContactEnum.WHATSAPP)?.value}</span>
               </a>
             </div>
           </div>

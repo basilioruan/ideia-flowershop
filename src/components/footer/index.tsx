@@ -6,8 +6,8 @@ import { useState } from 'react';
 import ContactModal from '../contact-modal';
 import flowershopIcon from '../../../public/assets/flowershop_icon.png';
 import navigationData from '@/commons/data/navigation.data';
-import { contactData, ContactItem } from '@/commons/data/contact.data';
 import { ContactEnum } from '@/commons/enums/contact.enum';
+import { getContactInfo } from '@/commons/utils/contact.utils';
 
 export default function Footer() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -17,10 +17,6 @@ export default function Footer() {
   const handleContactClick = () => {
     setIsContactModalOpen(true);
   };
-
-  const getContactInfo = (contact: ContactEnum): ContactItem | undefined => {
-    return contactData.find(cd => cd.id === contact);
-  }
 
   return (
     <>
