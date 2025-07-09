@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { HiMenu, HiX } from 'react-icons/hi';
 import { FaInstagram, FaWhatsapp, FaPhone, FaEnvelope } from 'react-icons/fa';
 import ContactModal from '../contact-modal';
+import { NavigationEnum } from '@/commons/enums/navigation.enum';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function Header() {
   };
 
   const handleLinkClick = (linkName: string) => {
-    if (linkName === 'FALE CONOSCO') {
+    if (linkName === NavigationEnum.FALE_CONOSCO) {
       setIsContactModalOpen(true);
       setIsMenuOpen(false);
     }
@@ -71,7 +72,7 @@ export default function Header() {
             {/* Navegação Desktop */}
             <nav className={styles.desktopNav}>
               {navigationData.map(link => (
-                link.name === 'FALE CONOSCO' ? (
+                link.name === NavigationEnum.FALE_CONOSCO ? (
                   <button 
                     key={link.name} 
                     onClick={() => handleLinkClick(link.name)}
@@ -108,7 +109,7 @@ export default function Header() {
             </div>
             <div className={styles.mobileNavContent}>
               {navigationData.map(link => (
-                link.name === 'FALE CONOSCO' ? (
+                link.name === NavigationEnum.FALE_CONOSCO ? (
                   <button 
                     key={link.name} 
                     onClick={() => handleLinkClick(link.name)}

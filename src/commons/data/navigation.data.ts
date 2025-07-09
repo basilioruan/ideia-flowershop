@@ -3,6 +3,7 @@ import { GiFlowerPot } from 'react-icons/gi';
 import { IoIosHome } from 'react-icons/io';
 import { TbShovelPitchforks } from 'react-icons/tb';
 import { FaInfoCircle, FaPhoneAlt } from 'react-icons/fa';
+import { NavigationEnum } from "../enums/navigation.enum";
 
 export interface INavLink {
   name: string,
@@ -12,27 +13,27 @@ export interface INavLink {
 
 export const navigationData: INavLink[] = [
   {
-    name: 'INÍCIO',
+    name: NavigationEnum.INICIO,
     icon: IoIosHome,
     href: '/'
   },
   {
-    name: 'PRODUTOS',
+    name: NavigationEnum.PRODUTOS,
     icon: GiFlowerPot,
     href: '/produtos'
   },
   {
-    name: 'SERVIÇOS',
+    name: NavigationEnum.SERVICOS,
     icon: TbShovelPitchforks,
     href: '/servicos'
   },
   {
-    name: 'QUEM SOMOS',
+    name: NavigationEnum.QUEM_SOMOS,
     icon: FaInfoCircle,
     href: '/'
   },
   {
-    name: 'FALE CONOSCO',
+    name: NavigationEnum.FALE_CONOSCO,
     icon: FaPhoneAlt,
     href: '/'
   }

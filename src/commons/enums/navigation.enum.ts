@@ -1,0 +1,7 @@
+export enum NavigationEnum {
+  INICIO = 'INÍCIO',
+  PRODUTOS = 'PRODUTOS',
+  SERVICOS = 'SERVIÇOS',
+  QUEM_SOMOS = 'QUEM SOMOS',
+  FALE_CONOSCO = 'FALE CONOSCO'
+}

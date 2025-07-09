@@ -22,7 +22,7 @@ export const contactData: ContactItem[] = [
     id: ContactEnum.WHATSAPP,
     icon: FaWhatsapp,
     label: 'WhatsApp',
-    value: 'wa.me/message/E56S2CSIOF5XM1',
+    value: 'WhatsApp',
     link: 'https://wa.me/message/E56S2CSIOF5XM1'
   },
   {
