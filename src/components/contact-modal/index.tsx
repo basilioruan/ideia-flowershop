@@ -4,6 +4,7 @@ import styles from './styles.module.css';
 import Link from 'next/link';
 import { contactData } from '../../commons/data/contact.data';
 import { ContactModalProps } from '@/types/contact.types';
+import { NavigationEnum } from '@/commons/enums/navigation.enum';
 
 export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   const renderContactValue = (item: typeof contactData[0]) => {
@@ -36,8 +37,9 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Fale Conosco">
+    <Modal isOpen={isOpen} onClose={onClose} title={NavigationEnum.FALE_CONOSCO}>
       <div className={styles.contactContent}>
+        
         <div className={styles.contactInfo}>
           {contactData.map((item) => {
             const IconComponent = item.icon;
@@ -46,7 +48,7 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
               <div key={item.id} className={styles.contactItem}>
                 <IconComponent className={styles.contactIcon} />
                 <div>
-                  <strong>{item.label}:</strong>
+                  <strong>{item.label}</strong>
                   {renderContactValue(item)}
                 </div>
               </div>
