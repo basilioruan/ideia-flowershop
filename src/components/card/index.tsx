@@ -1,21 +1,21 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import { useRouter } from 'next/router';
 import styles from './styles.module.css';
-import { Produto } from '@/types';
 
 interface CardProps {
   id?: number;
-  img: Produto['img'];
+  img: StaticImageData;
   title: string;
   description: string;
+  url: string;
 }
 
-export default function Card({img, title, description, id}: CardProps) {
+export default function Card({id, img, title, description, url}: CardProps) {
   const router = useRouter();
 
   const handleVerDetalhes = () => {
     if (id) {
-      router.push(`/produto-detail/${id}`);
+      router.push(`${url}/${id}`);
     }
   };
 
