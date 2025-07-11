@@ -35,11 +35,11 @@ export default function Header() {
             <div className={styles.contactInfo}>
               <div className={styles.contactItem}>
                 <FaPhone className={styles.contactIcon} />
-                <span>{getContactInfo(ContactEnum.PHONE)?.link}</span>
+                <span>{getContactInfo(ContactEnum.PHONE)?.value}</span>
               </div>
               <div className={styles.contactItem}>
                 <FaEnvelope className={styles.contactIcon} />
-                <span>{getContactInfo(ContactEnum.EMAIL)?.link}</span>
+                <span>{getContactInfo(ContactEnum.EMAIL)?.value}</span>
               </div>
             </div>
             <div className={styles.socialLinks}>
