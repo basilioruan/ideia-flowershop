@@ -1,0 +1,955 @@
+/* Main Container */
+.pageContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.heroSection {
+  background: linear-gradient(135deg, #FFF8DC 0%, #F5F5DC 100%);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%234C9A4C" opacity="0.05"/><circle cx="75" cy="75" r="1" fill="%23E6B800" opacity="0.05"/><circle cx="50" cy="10" r="0.5" fill="%234C9A4C" opacity="0.03"/><circle cx="10" cy="60" r="0.5" fill="%23E6B800" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.heroText {
+  max-width: 600px;
+}
+
+.heroTitle {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3.5rem;
+  font-weight: 600;
+  color: #4C9A4C;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.heroIcon {
+  color: #E6B800;
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.heroDescription {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.heroFeatures {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.featureHighlight {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.featureHighlight:hover {
+  border-color: #4C9A4C;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(76, 154, 76, 0.2);
+}
+
+.featureIcon {
+  color: #E6B800;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.featureHighlight span {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Services Section */
+.servicesSection {
+  margin-bottom: 4rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: #4C9A4C;
+  margin-bottom: 1rem;
+}
+
+.sectionLine {
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(90deg, #4C9A4C 0%, #E6B800 100%);
+  margin: 0 auto 1rem;
+  border-radius: 2px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Services Container */
+.servicesContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.serviceItem {
+  position: relative;
+  background: white;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.serviceItem::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #4C9A4C 0%, #E6B800 100%);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease;
+}
+
+.serviceItem:hover::before,
+.serviceItemActive::before {
+  transform: scaleX(1);
+}
+
+.serviceItem:hover,
+.serviceItemActive {
+  transform: translateY(-5px);
+  border-color: rgba(76, 154, 76, 0.15);
+  box-shadow: 0 15px 50px rgba(76, 154, 76, 0.12);
+}
+
+.serviceNumber {
+  position: absolute;
+  top: 1.5rem;
+  left: 2rem;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #4C9A4C;
+  background: rgba(76, 154, 76, 0.1);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Dancing Script', cursive;
+}
+
+.serviceContent {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 3rem;
+  align-items: start;
+  margin-left: 4rem;
+}
+
+.serviceLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.serviceBadge {
+  display: inline-block;
+  background: linear-gradient(135deg, #4C9A4C 0%, #E6B800 100%);
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+.serviceTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.serviceDesc {
+  color: #666;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.serviceHighlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.highlight {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.highlightDot {
+  width: 8px;
+  height: 8px;
+  background: #4C9A4C;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.moreItems {
+  padding: 0.8rem 1.2rem;
+  background: rgba(230, 184, 0, 0.08);
+  border-radius: 15px;
+  border: 1px dashed #E6B800;
+  text-align: center;
+}
+
+.moreItems span {
+  color: #E6B800;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.serviceRight {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: rgba(76, 154, 76, 0.02);
+  padding: 2rem;
+  border-radius: 15px;
+  border: 1px solid rgba(76, 154, 76, 0.1);
+}
+
+.priceSection {
+  text-align: center;
+}
+
+.priceLabel {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5rem;
+}
+
+.priceValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #4C9A4C;
+  margin-bottom: 0.5rem;
+}
+
+.priceNote {
+  font-size: 0.75rem;
+  color: #999;
+  font-style: italic;
+}
+
+.serviceActions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.primaryAction {
+  background: linear-gradient(135deg, #4C9A4C 0%, #E6B800 100%);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.primaryAction:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 154, 76, 0.3);
+}
+
+.secondaryAction {
+  background: transparent;
+  color: #4C9A4C;
+  border: 2px solid #4C9A4C;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.secondaryAction:hover {
+  background: #4C9A4C;
+  color: white;
+}
+
+.actionIcon {
+  font-size: 1.1rem;
+}
+
+.actionArrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.secondaryAction:hover .actionArrow {
+  transform: translateX(3px);
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.availabilityDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.available {
+  background: #4C9A4C;
+  box-shadow: 0 0 10px rgba(76, 154, 76, 0.5);
+}
+
+.unavailable {
+  background: #ccc;
+}
+
+.serviceDecor {
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0.1;
+}
+
+.decorIcon {
+  font-size: 2rem;
+  color: #4C9A4C;
+  transform: rotate(15deg);
+}
+
+.decorLine {
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(180deg, #4C9A4C 0%, #E6B800 100%);
+  border-radius: 1px;
+}
+
+/* Services Footer */
+.servicesFooter {
+  background: linear-gradient(135deg, #FFF8DC 0%, #F5F5DC 100%);
+  border-radius: 20px;
+  padding: 3rem 2rem;
+  margin-top: 2rem;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footerText h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.footerText p {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.customPackageButton {
+  background: linear-gradient(135deg, #4C9A4C 0%, #E6B800 100%);
+  color: white;
+  border: none;
+  padding: 1.2rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.customPackageButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(76, 154, 76, 0.3);
+}
+
+.customIcon {
+  font-size: 1.2rem;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, #4C9A4C 0%, #E6B800 100%);
+  border-radius: 20px;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: moveBackground 20s linear infinite;
+}
+
+@keyframes moveBackground {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaTitle {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.ctaDescription {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ctaButton,
+.ctaButtonSecondary {
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.ctaButton {
+  background: white;
+  color: #4C9A4C;
+  border: 2px solid white;
+}
+
+.ctaButton:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ctaButtonSecondary {
+  background: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.ctaButtonSecondary:hover {
+  background: white;
+  color: #4C9A4C;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.ctaIcon {
+  font-size: 1.2rem;
+}
+
+/* Modal */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+}
+
+.modalContent {
+  background: white;
+  border-radius: 20px;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #666;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.modalClose:hover {
+  background: #f5f5f5;
+  color: #333;
+}
+
+.modalHeader {
+  padding: 2rem 2rem 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.modalTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  padding-right: 3rem;
+}
+
+.modalCategory {
+  display: inline-block;
+  background: linear-gradient(135deg, #4C9A4C 0%, #E6B800 100%);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.modalBody {
+  padding: 2rem;
+}
+
+.modalDescription {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.modalDetails {
+  margin-bottom: 2rem;
+}
+
+.detailsTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+}
+
+.detailsItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.detailsItem:last-child {
+  border-bottom: none;
+}
+
+.detailsCheck {
+  color: #4C9A4C;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.modalPrice {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4C9A4C;
+}
+
+.modalCta {
+  background: linear-gradient(135deg, #4C9A4C 0%, #E6B800 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.modalCta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(76, 154, 76, 0.3);
+}
+
+.modalCtaIcon {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .heroFeatures {
+    gap: 1.5rem;
+  }
+  
+  .serviceContent {
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+  }
+  
+  .serviceRight {
+    padding: 1.5rem;
+  }
+  
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pageContainer {
+    padding: 1rem;
+  }
+  
+  .heroSection {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .heroTitle {
+    font-size: 2.5rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .heroFeatures {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .featureHighlight {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+  
+  .sectionTitle {
+    font-size: 2.2rem;
+  }
+  
+  .serviceContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-left: 2rem;
+  }
+  
+  .serviceNumber {
+    top: 1rem;
+    left: 1rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .serviceRight {
+    padding: 1.5rem;
+  }
+  
+  .serviceTitle {
+    font-size: 1.5rem;
+  }
+  
+  .priceValue {
+    font-size: 1.5rem;
+  }
+  
+  .servicesFooter {
+    padding: 2rem 1rem;
+  }
+  
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  
+  .customPackageButton {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .ctaSection {
+    padding: 2rem 1rem;
+  }
+  
+  .ctaTitle {
+    font-size: 2rem;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ctaButton,
+  .ctaButtonSecondary {
+    width: 100%;
+    max-width: 250px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroIcon {
+    font-size: 2rem;
+  }
+  
+  .serviceItem {
+    padding: 1.5rem;
+  }
+  
+  .serviceContent {
+    margin-left: 0;
+    gap: 1.5rem;
+  }
+  
+  .serviceNumber {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin-bottom: 1rem;
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .serviceTitle {
+    font-size: 1.3rem;
+  }
+  
+  .serviceDesc {
+    font-size: 0.95rem;
+  }
+  
+  .serviceRight {
+    padding: 1.2rem;
+  }
+  
+  .priceValue {
+    font-size: 1.3rem;
+  }
+  
+  .serviceActions {
+    gap: 0.8rem;
+  }
+  
+  .primaryAction,
+  .secondaryAction {
+    padding: 0.9rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .servicesFooter {
+    padding: 1.5rem 1rem;
+  }
+  
+  .footerText h4 {
+    font-size: 1.3rem;
+  }
+  
+  .footerText p {
+    font-size: 0.95rem;
+  }
+  
+  .customPackageButton {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  .modalContent {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+  
+  .modalHeader,
+  .modalBody {
+    padding: 1.5rem;
+  }
+  
+  .modalFooter {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+  }
+  
+  .modalCta {
+    justify-content: center;
+  }
+}
