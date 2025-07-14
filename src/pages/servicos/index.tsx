@@ -2,6 +2,7 @@ import { useState } from 'react';
 import PageTitle from '@/components/page-title';
 import servicosMock, { Servico } from './mock/servicos.mock';
 import styles from './styles.module.css';
+import { navigationData } from '@/commons/data/navigation.data';
 import { 
   FaLeaf, 
   FaHeart, 
@@ -16,6 +17,8 @@ import {
 export default function Servicos() {
   const [selectedService, setSelectedService] = useState<Servico | null>(null);
   const [hoveredService, setHoveredService] = useState<number | null>(null);
+  
+  const servicesIcon = navigationData.find(h => h.name === 'SERVIÇOS')?.icon;
 
   const handleServiceClick = (servico: Servico) => {
     setSelectedService(servico);
@@ -26,10 +29,9 @@ export default function Servicos() {
   };
 
   return (
-    <>
-      <PageTitle title="Nossos Serviços" />
+    <div className={styles.pageContainer}>
+      <PageTitle title="Nossos Serviços" icon={servicesIcon} />
       
-      <div className={styles.pageContainer}>
         {/* Hero Section */}
         <section className={styles.heroSection}>
           <div className={styles.heroContent}>
@@ -175,7 +177,6 @@ export default function Servicos() {
             </div>
           </div>
         </section>
-      </div>
 
       {/* Modal de Detalhes */}
       {selectedService && (
@@ -214,6 +215,6 @@ export default function Servicos() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
