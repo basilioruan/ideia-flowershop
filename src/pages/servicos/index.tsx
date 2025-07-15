@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Link from 'next/link';
 import PageTitle from '@/components/page-title';
 import servicosMock from './mock/servicos.mock';
 import styles from './styles.module.css';
@@ -106,10 +107,10 @@ export default function Servicos() {
                         <FaWhatsapp className={styles.actionIcon} />
                         <span>Solicitar Orçamento</span>
                       </button>
-                      <button className={styles.secondaryAction}>
+                      <Link href={`/servico-detail/${servico.id}`} className={styles.secondaryAction}>
                         <span>Ver Detalhes</span>
                         <FaArrowRight className={styles.actionArrow} />
-                      </button>
+                      </Link>
                     </div>
                     
                     <div className={styles.availability}>
