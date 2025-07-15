@@ -74,18 +74,14 @@ export default function Servicos() {
           </div>
 
           <div className={styles.servicesContainer}>
-            {servicosMock.map((servico, index) => (
+            {servicosMock.map(servico => (
               <div 
                 key={servico.id}
                 className={`${styles.serviceItem} ${hoveredService === servico.id ? styles.serviceItemActive : ''}`}
                 onMouseEnter={() => setHoveredService(servico.id)}
                 onMouseLeave={() => setHoveredService(null)}
                 onClick={() => handleServiceClick(servico)}
-              >
-                <div className={styles.serviceNumber}>
-                  {String(index + 1).padStart(2, '0')}
-                </div>
-                
+              > 
                 <div className={styles.serviceContent}>
                   <div className={styles.serviceLeft}>
                     <div className={styles.serviceBadge}>
