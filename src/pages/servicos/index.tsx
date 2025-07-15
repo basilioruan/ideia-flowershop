@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import PageTitle from '@/components/page-title';
-import servicosMock, { Servico } from './mock/servicos.mock';
+import servicosMock from './mock/servicos.mock';
 import styles from './styles.module.css';
 import { navigationData } from '@/commons/data/navigation.data';
 import { 
   FaLeaf, 
   FaHeart, 
   FaStar, 
-  FaCheck, 
   FaPhone, 
   FaWhatsapp,
   FaArrowRight,
@@ -15,18 +14,9 @@ import {
 } from 'react-icons/fa';
 
 export default function Servicos() {
-  const [selectedService, setSelectedService] = useState<Servico | null>(null);
   const [hoveredService, setHoveredService] = useState<number | null>(null);
   
   const servicesIcon = navigationData.find(h => h.name === 'SERVIÇOS')?.icon;
-
-  const handleServiceClick = (servico: Servico) => {
-    setSelectedService(servico);
-  };
-
-  const closeModal = () => {
-    setSelectedService(null);
-  };
 
   return (
     <div className={styles.pageContainer}>
@@ -80,7 +70,6 @@ export default function Servicos() {
                 className={`${styles.serviceItem} ${hoveredService === servico.id ? styles.serviceItemActive : ''}`}
                 onMouseEnter={() => setHoveredService(servico.id)}
                 onMouseLeave={() => setHoveredService(null)}
-                onClick={() => handleServiceClick(servico)}
               > 
                 <div className={styles.serviceContent}>
                   <div className={styles.serviceLeft}>
@@ -174,43 +163,6 @@ export default function Servicos() {
           </div>
         </section>
 
-      {/* Modal de Detalhes */}
-      {selectedService && (
-        <div className={styles.modalOverlay} onClick={closeModal}>
-          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-            <button className={styles.modalClose} onClick={closeModal}>×</button>
-            
-            <div className={styles.modalHeader}>
-              <h3 className={styles.modalTitle}>{selectedService.nome}</h3>
-              <div className={styles.modalCategory}>{selectedService.categoria}</div>
-            </div>
-            
-            <div className={styles.modalBody}>
-              <p className={styles.modalDescription}>{selectedService.descricao}</p>
-              
-              <div className={styles.modalDetails}>
-                <h4 className={styles.detailsTitle}>O que está incluso:</h4>
-                <ul className={styles.detailsList}>
-                  {selectedService.detalhes.map((detalhe, index) => (
-                    <li key={index} className={styles.detailsItem}>
-                      <FaCheck className={styles.detailsCheck} />
-                      {detalhe}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              
-              <div className={styles.modalFooter}>
-                <div className={styles.modalPrice}>{selectedService.preco}</div>
-                <button className={styles.modalCta}>
-                  <FaWhatsapp className={styles.modalCtaIcon} />
-                  Solicitar Orçamento
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
