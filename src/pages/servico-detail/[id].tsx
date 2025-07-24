@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
 import PageTitle from '@/components/page-title';
 import servicosMock, { Servico } from '../servicos/mock/servicos.mock';
@@ -63,22 +62,17 @@ export default function ServicoDetail() {
 
   return (
     <div className={styles.pageContainer}>
-      <PageTitle title={servico.nome} icon={servicesIcon} />
-      
-      {/* Breadcrumb */}
-      <div className={styles.breadcrumb}>
-        <Link href="/servicos" className={styles.breadcrumbLink}>
-          Serviços
-        </Link>
-        <span className={styles.breadcrumbSeparator}>/</span>
-        <span className={styles.breadcrumbCurrent}>{servico.nome}</span>
-      </div>
-
-      {/* Back Button */}
-      <Link href="/servicos" className={styles.backButton}>
-        <FaArrowLeft className={styles.backIcon} />
-        Voltar para Serviços
-      </Link>
+      <div className={styles.topNav}>
+          <Link href="/produtos" className={styles.backLink}>
+            <FaArrowLeft />
+            <span>Serviços</span>
+          </Link>
+          <div className={styles.breadcrumb}>
+            <span>Serviços</span>
+            <span className={styles.separator}>›</span>
+            <span className={styles.currentPage}>{servico.nome}</span>
+          </div>
+        </div>
 
       {/* Service Hero */}
       <section className={styles.serviceHero}>

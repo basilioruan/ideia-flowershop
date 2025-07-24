@@ -45,63 +45,50 @@
   font-size: 1.1rem;
 }
 
-/* Breadcrumb */
+/* Navegação superior */
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(230, 184, 0, 0.2);
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4C9A4C;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(76, 154, 76, 0.1);
+}
+
+.backLink:hover {
+  color: white;
+  background: #4C9A4C;
+}
+
 .breadcrumb {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1rem;
   font-size: 0.9rem;
-}
-
-.breadcrumbLink {
-  color: #4C9A4C;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.breadcrumbLink:hover {
-  color: #E6B800;
-}
-
-.breadcrumbSeparator {
-  color: #999;
-}
-
-.breadcrumbCurrent {
   color: #666;
-  font-weight: 500;
 }
 
-/* Back Button */
-.backButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.8rem;
+.separator {
+  color: #E6B800;
+  font-weight: bold;
+}
+
+.currentPage {
   color: #4C9A4C;
-  text-decoration: none;
-  font-weight: 500;
-  margin-bottom: 2rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 25px;
-  border: 2px solid #4C9A4C;
-  transition: all 0.3s ease;
-  background: transparent;
-}
-
-.backButton:hover {
-  background: #4C9A4C;
-  color: white;
-  transform: translateX(-5px);
-}
-
-.backIcon {
-  font-size: 1rem;
-  transition: transform 0.3s ease;
-}
-
-.backButton:hover .backIcon {
-  transform: translateX(-3px);
+  font-weight: 600;
 }
 
 /* Service Hero */
@@ -624,6 +611,10 @@
     max-width: 300px;
     justify-content: center;
   }
+
+  .breadcrumb {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {
@@ -646,5 +637,9 @@
   .processSection,
   .ctaSection {
     padding: 2rem 1rem;
+  }
+
+  .backLink span {
+    display: none;
   }
 }
