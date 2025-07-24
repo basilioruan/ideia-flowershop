@@ -428,58 +428,6 @@
   border-radius: 1px;
 }
 
-/* Services Footer */
-.servicesFooter {
-  background: linear-gradient(135deg, #FFF8DC 0%, #F5F5DC 100%);
-  border-radius: 20px;
-  padding: 3rem 2rem;
-  margin-top: 2rem;
-}
-
-.footerContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-}
-
-.footerText h4 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 0.5rem;
-}
-
-.footerText p {
-  color: #666;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-.customPackageButton {
-  background: linear-gradient(135deg, #4C9A4C 0%, #E6B800 100%);
-  color: white;
-  border: none;
-  padding: 1.2rem 2rem;
-  border-radius: 30px;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  white-space: nowrap;
-}
-
-.customPackageButton:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(76, 154, 76, 0.3);
-}
-
-.customIcon {
-  font-size: 1.2rem;
-}
 
 /* CTA Section */
 .ctaSection {
@@ -596,11 +544,6 @@
     padding: 1.5rem;
   }
   
-  .footerContent {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -661,20 +604,7 @@
     font-size: 1.5rem;
   }
   
-  .servicesFooter {
-    padding: 2rem 1rem;
-  }
   
-  .footerContent {
-    flex-direction: column;
-    text-align: center;
-    gap: 1.5rem;
-  }
-  
-  .customPackageButton {
-    width: 100%;
-    max-width: 300px;
-  }
   
   .ctaSection {
     padding: 2rem 1rem;
@@ -751,20 +681,4 @@
     font-size: 0.9rem;
   }
   
-  .servicesFooter {
-    padding: 1.5rem 1rem;
-  }
-  
-  .footerText h4 {
-    font-size: 1.3rem;
-  }
-  
-  .footerText p {
-    font-size: 0.95rem;
-  }
-  
-  .customPackageButton {
-    padding: 1rem 1.5rem;
-    font-size: 0.95rem;
-  }
 }

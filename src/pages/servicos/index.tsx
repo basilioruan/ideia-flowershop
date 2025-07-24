@@ -127,19 +127,6 @@ export default function Servicos() {
               </div>
             ))}
           </div>
-          
-          <div className={styles.servicesFooter}>
-            <div className={styles.footerContent}>
-              <div className={styles.footerText}>
-                <h4>Não encontrou o que procura?</h4>
-                <p>Criamos pacotes personalizados para atender suas necessidades específicas</p>
-              </div>
-              <button className={styles.customPackageButton}>
-                <FaHeart className={styles.customIcon} />
-                <span>Criar Pacote Personalizado</span>
-              </button>
-            </div>
-          </div>
         </section>
 
         {/* CTA Section */}

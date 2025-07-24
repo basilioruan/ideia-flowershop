@@ -142,11 +142,14 @@ export default function ServicoDetail() {
                 <div key={index} className={styles.planCard}>
                   <div className={styles.planHeader}>
                     <h3 className={styles.planName}>Plano {plano.nome}</h3>
-                    <div className={styles.planPrice}>
-                      {new Intl.NumberFormat('pt-BR', {
-                        style: 'currency',
-                        currency: 'BRL'
-                      }).format(plano.valor)}
+                    <div className={styles.planPriceContainer}>
+                      <span className={styles.planPriceLabel}>A partir de</span>
+                      <div className={styles.planPrice}>
+                        {new Intl.NumberFormat('pt-BR', {
+                          style: 'currency',
+                          currency: 'BRL'
+                        }).format(plano.valor)}
+                      </div>
                     </div>
                     {plano.descricao && (
                       <p className={styles.planDescription}>{plano.descricao}</p>
