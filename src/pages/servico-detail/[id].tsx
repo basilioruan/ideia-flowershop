@@ -64,7 +64,7 @@ export default function ServicoDetail() {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.topNav}>
-          <Link href="/produtos" className={styles.backLink}>
+          <Link href="/servicos" className={styles.backLink}>
             <FaArrowLeft />
             <span>Serviços</span>
           </Link>
@@ -123,37 +123,6 @@ export default function ServicoDetail() {
         </div>
       </section>
 
-      {/* Service Details */}
-      <section className={styles.serviceDetails}>
-        <div className={styles.detailsContainer}>
-          <div className={styles.detailsHeader}>
-            <h2 className={styles.detailsTitle}>
-              <FaLeaf className={styles.detailsIcon} />
-              O que está incluído neste serviço
-            </h2>
-            <p className={styles.detailsSubtitle}>
-              Cada item foi cuidadosamente selecionado para garantir a perfeição do seu evento
-            </p>
-          </div>
-          
-          <div className={styles.detailsList}>
-            {servico.detalhes.map((detalhe, index) => (
-              <div key={index} className={styles.detailItem}>
-                <div className={styles.detailCheck}>
-                  <FaCheck className={styles.checkIcon} />
-                </div>
-                <div className={styles.detailContent}>
-                  <h4 className={styles.detailName}>{detalhe}</h4>
-                  <p className={styles.detailDescription}>
-                    Serviço completo e personalizado de acordo com suas preferências
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Plans Section */}
       {servico.planos && servico.planos.length > 0 && (
         <section className={styles.plansSection}>
@@ -161,10 +130,10 @@ export default function ServicoDetail() {
             <div className={styles.plansHeader}>
               <h2 className={styles.plansTitle}>
                 <FaCrown className={styles.plansIcon} />
-                Escolha o plano ideal para você
+                Nossos Planos de Decoração
               </h2>
               <p className={styles.plansSubtitle}>
-                Oferecemos diferentes opções para atender suas necessidades e orçamento
+                Escolha o plano que melhor se adequa ao seu evento e orçamento. Cada opção foi cuidadosamente elaborada para garantir a perfeição do seu dia especial.
               </p>
             </div>
             
@@ -172,8 +141,13 @@ export default function ServicoDetail() {
               {servico.planos.map((plano, index) => (
                 <div key={index} className={styles.planCard}>
                   <div className={styles.planHeader}>
-                    <h3 className={styles.planName}>{plano.nome}</h3>
-                    <div className={styles.planPrice}>{plano.valor}</div>
+                    <h3 className={styles.planName}>Plano {plano.nome}</h3>
+                    <div className={styles.planPrice}>
+                      {new Intl.NumberFormat('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                      }).format(plano.valor)}
+                    </div>
                     {plano.descricao && (
                       <p className={styles.planDescription}>{plano.descricao}</p>
                     )}
@@ -181,6 +155,7 @@ export default function ServicoDetail() {
                   
                   {plano.itens && (
                     <div className={styles.planFeatures}>
+                      <h4 className={styles.planFeaturesTitle}>O que está incluído:</h4>
                       {plano.itens.map((item, itemIndex) => (
                         <div key={itemIndex} className={styles.planFeature}>
                           <FaCheck className={styles.featureIcon} />
@@ -193,7 +168,7 @@ export default function ServicoDetail() {
                   <div className={styles.planAction}>
                     <button className={styles.planButton}>
                       <FaWhatsapp className={styles.planButtonIcon} />
-                      Escolher {plano.nome}
+                      Escolher Plano {plano.nome}
                     </button>
                   </div>
                 </div>

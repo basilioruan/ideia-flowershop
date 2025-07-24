@@ -3,7 +3,7 @@ import { StaticImageData } from 'next/image';
 
 export interface Plano {
   nome: string;
-  valor: string;
+  valor: number;
   descricao?: string;
   itens?: string[];
 }
@@ -44,7 +44,7 @@ const servicosMock: Servico[] = [
     planos: [
       {
         nome: "Básico",
-        valor: "R$ 1.200,00",
+        valor: 1200,
         descricao: "Perfeito para cerimônias íntimas e elegantes",
         itens: [
           "Decoração do altar",
@@ -56,7 +56,7 @@ const servicosMock: Servico[] = [
       },
       {
         nome: "Padrão",
-        valor: "R$ 2.500,00",
+        valor: 2500,
         descricao: "A escolha ideal para a maioria dos casamentos",
         itens: [
           "Decoração completa do altar",
@@ -70,7 +70,7 @@ const servicosMock: Servico[] = [
       },
       {
         nome: "Premium",
-        valor: "R$ 4.800,00",
+        valor: 4800,
         descricao: "Experiência completa e luxuosa para seu grande dia",
         itens: [
           "Decoração completa e luxuosa",
