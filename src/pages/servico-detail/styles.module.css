@@ -388,6 +388,176 @@
   margin: 0;
 }
 
+/* Plans Section */
+.plansSection {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #f8fffe 0%, #f0f9f0 100%);
+  margin: 2rem 0;
+  border-radius: 20px;
+}
+
+.plansContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.plansHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.plansTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2d5a2d;
+  margin-bottom: 1rem;
+}
+
+.plansIcon {
+  color: #E6B800;
+  font-size: 2rem;
+}
+
+.plansSubtitle {
+  font-size: 1.2rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.plansGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.planCard {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.planCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+}
+
+.planHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.planName {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d5a2d;
+  margin-bottom: 0.5rem;
+}
+
+.planPrice {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #4C9A4C;
+  margin-bottom: 1rem;
+}
+
+.planDescription {
+  color: #666;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.planFeatures {
+  margin-bottom: 2rem;
+}
+
+.planFeature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 0;
+}
+
+.featureIcon {
+  color: #4C9A4C;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.planFeature span {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.planAction {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.planButton {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border: 2px solid #4C9A4C;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: white;
+  color: #4C9A4C;
+}
+
+.planButton:hover {
+  background: #4C9A4C;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(76, 154, 76, 0.2);
+}
+
+.planButtonIcon {
+  font-size: 1rem;
+}
+
+/* Responsive adjustments for plans */
+@media (max-width: 768px) {
+  .plansGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .plansTitle {
+    font-size: 2rem;
+  }
+  
+  .planCard {
+    padding: 1.5rem;
+    min-height: 450px;
+  }
+}
+
 /* Process Section */
 .processSection {
   background: linear-gradient(135deg, #FFF8DC 0%, #F5F5DC 100%);

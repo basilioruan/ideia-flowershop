@@ -1,6 +1,13 @@
 import rosaImg from '../../../../public/assets/buque_rosas.jpg';
 import { StaticImageData } from 'next/image';
 
+export interface Plano {
+  nome: string;
+  valor: string;
+  descricao?: string;
+  itens?: string[];
+}
+
 export interface Servico {
   id: number;
   nome: string;
@@ -11,6 +18,7 @@ export interface Servico {
   imagem: string;
   detalhes: string[];
   disponivel: boolean;
+  planos?: Plano[];
 }
 
 const servicosMock: Servico[] = [
@@ -32,7 +40,51 @@ const servicosMock: Servico[] = [
       "Arranjos para o carro dos noivos",
       "Consultoria personalizada de cores e estilo"
     ],
-    disponivel: true
+    disponivel: true,
+    planos: [
+      {
+        nome: "Básico",
+        valor: "R$ 1.200,00",
+        descricao: "Perfeito para cerimônias íntimas e elegantes",
+        itens: [
+          "Decoração do altar",
+          "Buquê da noiva",
+          "Boutonnieres para noivo",
+          "Arranjos para 4 mesas",
+          "Consultoria básica"
+        ]
+      },
+      {
+        nome: "Padrão",
+        valor: "R$ 2.500,00",
+        descricao: "A escolha ideal para a maioria dos casamentos",
+        itens: [
+          "Decoração completa do altar",
+          "Buquê da noiva + reserva",
+          "Boutonnieres para noivo e padrinhos",
+          "Arranjos para até 10 mesas",
+          "Decoração da entrada",
+          "Flores para damas de honra",
+          "Consultoria personalizada"
+        ]
+      },
+      {
+        nome: "Premium",
+        valor: "R$ 4.800,00",
+        descricao: "Experiência completa e luxuosa para seu grande dia",
+        itens: [
+          "Decoração completa e luxuosa",
+          "Múltiplos buquês personalizados",
+          "Boutonnieres premium",
+          "Arranjos ilimitados para mesas",
+          "Decoração entrada + cerimônia",
+          "Flores para toda comitiva",
+          "Arranjos para carro dos noivos",
+          "Consultoria VIP + acompanhamento",
+          "Flores extras para fotos"
+        ]
+      }
+    ]
   }
 ];
 

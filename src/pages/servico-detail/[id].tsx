@@ -14,7 +14,8 @@ import {
   FaHeart,
   FaCalendarAlt,
   FaClock,
-  FaMapMarkerAlt
+  FaMapMarkerAlt,
+  FaCrown
 } from 'react-icons/fa';
 
 export default function ServicoDetail() {
@@ -152,6 +153,55 @@ export default function ServicoDetail() {
           </div>
         </div>
       </section>
+
+      {/* Plans Section */}
+      {servico.planos && servico.planos.length > 0 && (
+        <section className={styles.plansSection}>
+          <div className={styles.plansContainer}>
+            <div className={styles.plansHeader}>
+              <h2 className={styles.plansTitle}>
+                <FaCrown className={styles.plansIcon} />
+                Escolha o plano ideal para você
+              </h2>
+              <p className={styles.plansSubtitle}>
+                Oferecemos diferentes opções para atender suas necessidades e orçamento
+              </p>
+            </div>
+            
+            <div className={styles.plansGrid}>
+              {servico.planos.map((plano, index) => (
+                <div key={index} className={styles.planCard}>
+                  <div className={styles.planHeader}>
+                    <h3 className={styles.planName}>{plano.nome}</h3>
+                    <div className={styles.planPrice}>{plano.valor}</div>
+                    {plano.descricao && (
+                      <p className={styles.planDescription}>{plano.descricao}</p>
+                    )}
+                  </div>
+                  
+                  {plano.itens && (
+                    <div className={styles.planFeatures}>
+                      {plano.itens.map((item, itemIndex) => (
+                        <div key={itemIndex} className={styles.planFeature}>
+                          <FaCheck className={styles.featureIcon} />
+                          <span>{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                  
+                  <div className={styles.planAction}>
+                    <button className={styles.planButton}>
+                      <FaWhatsapp className={styles.planButtonIcon} />
+                      Escolher {plano.nome}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Process Section */}
       <section className={styles.processSection}>
