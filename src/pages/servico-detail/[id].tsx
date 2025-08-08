@@ -2,8 +2,9 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import PageTitle from '@/components/page-title';
-import servicosMock, { Servico } from '../servicos/mock/servicos.mock';
+import servicosMock, { Servico } from '../../data/servicos.mock';
 import { navigationData } from '@/commons/data/navigation.data';
+import ImageCarousel from '@/components/image-carousel';
 import styles from './styles.module.css';
 import {
   FaArrowLeft,
@@ -15,7 +16,8 @@ import {
   FaCalendarAlt,
   FaClock,
   FaMapMarkerAlt,
-  FaCrown
+  FaCrown,
+  FaImages
 } from 'react-icons/fa';
 
 export default function ServicoDetail() {
@@ -23,8 +25,17 @@ export default function ServicoDetail() {
   const { id } = router.query;
   const [servico, setServico] = useState<Servico | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isCarouselOpen, setIsCarouselOpen] = useState(false);
 
   const servicesIcon = navigationData.find(h => h.name === 'SERVIÇOS')?.icon;
+
+  // Imagens disponíveis para o carrossel
+  const galleryImages = [
+    '/assets/altar_decoration.jpg',
+    '/assets/buque_rosas.jpg',
+    '/assets/rose_img.jpg',
+    '/assets/services_img.jpg'
+  ];
 
   useEffect(() => {
     if (id) {
@@ -173,6 +184,13 @@ export default function ServicoDetail() {
                       <FaWhatsapp className={styles.planButtonIcon} />
                       Escolher Plano {plano.nome}
                     </button>
+                    <button 
+                      className={styles.photosButton}
+                      onClick={() => setIsCarouselOpen(true)}
+                    >
+                      <FaImages className={styles.photosButtonIcon} />
+                      Ver fotos
+                    </button>
                   </div>
                 </div>
               ))}
@@ -235,6 +253,13 @@ export default function ServicoDetail() {
           </div>
         </div>
       </section>
+
+      {/* Image Carousel Modal */}
+      <ImageCarousel
+        images={galleryImages}
+        isOpen={isCarouselOpen}
+        onClose={() => setIsCarouselOpen(false)}
+      />
     </div>
   );
 }

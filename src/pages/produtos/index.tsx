@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import PageTitle from "@/components/page-title";
-import produtosMock from "./mock/produtos.mock";
+import produtosMock from '../../data/produtos.mock';
 import styles from "./styles.module.css";
 import { navigationData } from "@/commons/data/navigation.data";
 import { 

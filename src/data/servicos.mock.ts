@@ -1,4 +1,4 @@
-import rosaImg from '../../../../public/assets/buque_rosas.jpg';
+import rosaImg from '../../public/assets/buque_rosas.jpg';
 import { StaticImageData } from 'next/image';
 
 export interface Plano {

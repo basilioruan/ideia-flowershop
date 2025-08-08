@@ -1,5 +1,5 @@
 import { Produto } from '@/types/produto.types';
-import rosaImg from '../../../../public/assets/buque_rosas.jpg';
+import rosaImg from '../../public/assets/buque_rosas.jpg';
 
 const produtosMock = [
   {

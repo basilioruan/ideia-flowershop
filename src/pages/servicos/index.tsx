@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import PageTitle from '@/components/page-title';
-import servicosMock from './mock/servicos.mock';
+import servicosMock from '../../data/servicos.mock';
 import styles from './styles.module.css';
 import { navigationData } from '@/commons/data/navigation.data';
 import { 

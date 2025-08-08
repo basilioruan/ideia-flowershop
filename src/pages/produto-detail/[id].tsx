@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import produtosMock from '../produtos/mock/produtos.mock';
+import produtosMock from '../../data/produtos.mock';
 import styles from './styles.module.css';
 import { FaArrowLeft, FaHeart, FaShare, FaWhatsapp, FaInstagram, FaTruck, FaClock } from 'react-icons/fa';
 import { Produto } from '@/types/produto.types';
