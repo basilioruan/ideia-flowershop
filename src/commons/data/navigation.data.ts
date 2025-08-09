@@ -30,7 +30,7 @@ export const navigationData: INavLink[] = [
   {
     name: NavigationEnum.QUEM_SOMOS,
     icon: FaInfoCircle,
-    href: '/'
+    href: '/quem-somos'
   },
   {
     name: NavigationEnum.FALE_CONOSCO,
