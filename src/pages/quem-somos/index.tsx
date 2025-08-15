@@ -21,19 +21,17 @@ export default function QuemSomos() {
     <div className={styles.pageContainer}>
       <PageTitle title="Quem Somos" icon={aboutIcon} />
       
-      {/* Hero Section */}
-      <section className={styles.heroSection}>
-        <div className={styles.heroContent}>
-          <div className={styles.heroText}>
-            <h1 className={styles.heroTitle}>
-              <FaHeart className={styles.heroIcon} />
-              Cultivando momentos especiais há mais de 10 anos
-            </h1>
-            <p className={styles.heroDescription}>
-              Somos uma floricultura familiar que nasceu do amor pelas flores e pela arte de criar momentos únicos. 
-              Nossa paixão é transformar ocasiões especiais em memórias inesquecíveis através da beleza natural das flores.
-            </p>
-          </div>
+      {/* Intro Section */}
+      <section className={styles.introSection}>
+        <div className={styles.introContent}>
+          <h2 className={styles.introTitle}>
+            <FaHeart className={styles.introIcon} />
+            Cultivando momentos especiais há mais de 10 anos
+          </h2>
+          <p className={styles.introDescription}>
+            Somos uma floricultura familiar que nasceu do amor pelas flores e pela arte de criar momentos únicos. 
+            Nossa paixão é transformar ocasiões especiais em memórias inesquecíveis através da beleza natural das flores.
+          </p>
         </div>
       </section>
 
